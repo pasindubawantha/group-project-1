@@ -1,0 +1,27 @@
+{
+    "user": {
+        "status":{
+            "fetching": false,
+            "fetched": false,
+            "error": null
+        },
+        "SessionID": null,
+        "appList":[]
+    },
+    "lists": {
+        "status":{
+            "fetching": false,
+            "fetched": false,
+            "error": null
+        },
+        "vendors": []
+    },
+    "apps":{
+        "app123": {
+            "name":"App1",
+            "menueItems" : [[{"name":"link1","viewID":"app1238","components":["componentId1","componentid2"]}], [{"name":"Headlink2","viewID":"url2"} , {"name":"Sublink1","viewID":"url3"}]]
+            
+        }
+    },
+    "url":[{"name":"Home","viewID":"Home"},{"name":"notf","viewID":"app123"},{"name":"APP1","viewID":"app1238"}]
+}

@@ -2,6 +2,10 @@ import { applyMiddleware, createStore } from "redux";
 import logger from 'redux-logger';
 import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";
+import initialStateObject from './storeObject.json';
+
+//import {routerMiddleware } from 'react-router-redux'
+//import createHistory from 'history/createBrowserHistory'
 
 import reducer from "./reducers"
 
@@ -12,22 +16,26 @@ import reducer from "./reducers"
   // ...options
 });*/
 
+//const history = createHistory()
+//const routerHistory = routerMiddleware(history)
 
-const middleWare = applyMiddleware(logger(), promise(), thunk);
+//const middleWare = applyMiddleware(routerHistory ,logger() , promise(), thunk);
+const middleWare = applyMiddleware(logger() , promise(), thunk);
+const initialState = initialStateObject
 
-const initialState = {
-	user: {
-		SessionID : {
-			value: null,
-			fetching: false,
-			fetched: false,
-			error: null}
-	},
-	tweets: [],
-	lists: {
-		vendors: []
-	}
-}
+// const initialState = {
+// 	user: {
+// 		SessionID : {
+// 			value: null,
+// 			fetching: false,
+// 			fetched: false,
+// 			error: null}
+// 	},
+// 	tweets: [],
+// 	lists: {
+// 		vendors: []
+// 	}
+// }
 
 export default createStore(reducer, initialState, middleWare);
 

@@ -3,12 +3,13 @@ import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 
 import TestComponent from "./components/TestComponent"
+import MainFrame from "./components/MainFrame.js"
 import store from "./store"
 
 const app = document.getElementById('root')
 
 ReactDOM.render(
 	<Provider store={ store }>
-		<TestComponent />
+		<MainFrame />
 	</Provider>
 	,app);

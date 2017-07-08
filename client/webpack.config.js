@@ -17,6 +17,7 @@ module.exports = {
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'] }
       },
       { test: /\.css$/, loader: "style-loader!css-loader" },
+      //{ test: /\.json$/, loader: 'json' }
     ]
   },
   output: {
