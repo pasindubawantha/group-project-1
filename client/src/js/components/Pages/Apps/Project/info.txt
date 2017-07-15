@@ -1,0 +1,7 @@
+Project
+
+done
+
+pick stage
+show all items in stage budget entries (no general item, if not allowed)
+if TO needs an item PM has to edit budget

@@ -1,5 +1,5 @@
 import React from "react"
-import Link from "../SubComponents/Link.js"
+import Link from "./Link.js"
 import { connect } from "react-redux"
 
 @connect((store) => {
@@ -12,7 +12,6 @@ export default class SideMenueItem extends React.Component {
 		const curentApp = this.props.url[this.props.url.length-1].viewID
 		//console.log(curentApp)
 		if(linkArray.length == 1){
-			console.log(linkArray)
 			if(curentApp === linkArray[0].viewID){
 				return (<li class="active"> <Link url={this.props.concatLink.concat({name: linkArray[0].name,viewID: linkArray[0].viewID})} name={linkArray[0].name} /></li>)
 			}

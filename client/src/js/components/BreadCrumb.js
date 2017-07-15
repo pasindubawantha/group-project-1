@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import Link from "./SubComponents/Link.js"
+import Link from "./Pages/Components/Link.js"
 
 @connect((store) => {
 	return {//props

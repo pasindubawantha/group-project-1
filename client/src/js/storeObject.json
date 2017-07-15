@@ -1,27 +1,329 @@
 {
     "user": {
-        "status":{
+        "status": {
             "fetching": false,
             "fetched": false,
             "error": null
         },
         "SessionID": null,
-        "appList":[]
-    },
-    "lists": {
-        "status":{
-            "fetching": false,
-            "fetched": false,
-            "error": null
-        },
-        "vendors": []
-    },
-    "apps":{
-        "app123": {
-            "name":"App1",
-            "menueItems" : [[{"name":"link1","viewID":"app1238","components":["componentId1","componentid2"]}], [{"name":"Headlink2","viewID":"url2"} , {"name":"Sublink1","viewID":"url3"}]]
+        "appList": [
             
-        }
+        ]
     },
-    "url":[{"name":"Home","viewID":"Home"},{"name":"notf","viewID":"app123"},{"name":"APP1","viewID":"app1238"}]
+    "url": [
+        {
+            "name": "Home",
+            "viewID": "Home"
+        },
+        {
+            "name": "notf",
+            "viewID": "app123"
+        },
+        {
+            "name": "APP1",
+            "viewID": "view1238"
+        }
+    ],
+    "apps": {
+        "app123": {
+            "name": "App1",
+            "menueItems": [
+                [
+                    {
+                        "name": "link1",
+                        "viewID": "view1238",
+                        "components": [
+                            "componentId1",
+                            "componentid2"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "name": "Headlink2",
+                        "viewID": "url2"
+                    },
+                    {
+                        "name": "Sublink1",
+                        "viewID": "url3"
+                    }
+                ]
+            ],
+            "tab123": {
+                "listAll": [
+                    {"name":"name1",
+                    "field1":"field1",
+                    "firld2":"field2"
+                    },
+                    {"name":"name1",
+                    "field1":"field1",
+                    "firld2":"field2"
+                    }
+                ],
+                "listShow": [
+                    
+                ],
+                "search":{
+                    "fields":["name","field1"],
+                    "for":"na"
+                },
+                "state":{}
+            }
+        },
+        "Admin": {
+            "name": "Admin Management",
+            "menuItems": [
+                [
+                    {
+                        "name": "MakePayment",
+                        "viewID": "AdminMakePayment"
+                    }
+                ],
+                [
+                    {
+                        "name": "Overview",
+                        "viewID": "AdminViewAdminCosts"
+                    }
+                ]
+            ],
+            "tabs":{
+                "AdminMakePayment": {
+                    "state":{}
+                },
+                "AdminViewAdminCosts": {}
+            }
+        },
+        "Customer": {
+            "name": "Customers",
+            "menuItems": [
+                [
+                    {
+                        "name": "List All Customers",
+                        "viewID": "CustomerAll"
+                    }
+                ],
+                [
+                    {
+                        "name": "Add New Customer",
+                        "viewID": "CustomerNewCustomer"
+                    }
+                ]
+            ],
+            "tabs":{
+                "tab123": {
+                    "listAll": [
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        },
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        }
+                    ],
+                    "listShow": [
+                        
+                    ],
+                    "search":{
+                        "fields":["name","field1"],
+                        "for":"na"
+                    },
+                    "state":{}
+                },
+                "tab1234": {
+                    "listAll": [
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        },
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        }
+                    ],
+                    "listShow": [
+                        
+                    ],
+                    "search":{
+                        "fields":["name","field1"],
+                        "for":"na"
+                    },
+                    "state":{}
+                }
+            }
+        },
+        "Employee": {
+            "name": "Customers",
+            "menuItems": [
+                [
+                    {
+                        "name": "All",
+                        "viewID": "CustomerAll"
+                    }
+                ],
+                [
+                    {
+                        "name": "Headlink2",
+                        "viewID": "url2"
+                    },
+                    {
+                        "name": "Sublink1",
+                        "viewID": "url3"
+                    }
+                ]
+            ],
+            "tabs":{
+                "tab123": {
+                    "listAll": [
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        },
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        }
+                    ],
+                    "listShow": [
+                        
+                    ],
+                    "search":{
+                        "fields":["name","field1"],
+                        "for":"na"
+                    },
+                    "state":{}
+                }
+            }
+        },
+        "Project": {
+            "name": "Customers",
+            "menueItems": [
+                [
+                    {
+                        "name": "All",
+                        "viewID": "CustomerAll"
+                    }
+                ],
+                [
+                    {
+                        "name": "Headlink2",
+                        "viewID": "url2"
+                    },
+                    {
+                        "name": "Sublink1",
+                        "viewID": "url3"
+                    }
+                ]
+            ],
+            "tabs":{
+                "tab123": {
+                    "listAll": [
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        },
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        }
+                    ],
+                    "listShow": [
+                        
+                    ],
+                    "search":{
+                        "fields":["name","field1"],
+                        "for":"na"
+                    },
+                    "state":{}
+                }
+            }
+        },
+        "Reverse": {
+            "name": "Customers",
+            "menuItems": [
+                [
+                    {
+                        "name": "All",
+                        "viewID": "CustomerAll"
+                    }
+                ],
+                [
+                    {
+                        "name": "Headlink2",
+                        "viewID": "url2"
+                    },
+                    {
+                        "name": "Sublink1",
+                        "viewID": "url3"
+                    }
+                ]
+            ],
+            "tabs":{
+                "tab123": {
+                    "listAll": [
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        },
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        }
+                    ],
+                    "listShow": [
+                        
+                    ],
+                    "search":{
+                        "fields":["name","field1"],
+                        "for":"na"
+                    },
+                    "state":{}
+                }
+            }
+        },
+        "Vendor": {
+            "name": "Customers",
+            "menuItems": [
+                [
+                    {
+                        "name": "All",
+                        "viewID": "CustomerAll"
+                    }
+                ],
+                [
+                    {
+                        "name": "Headlink2",
+                        "viewID": "url2"
+                    },
+                    {
+                        "name": "Sublink1",
+                        "viewID": "url3"
+                    }
+                ]
+            ],
+            "tabs":{
+                "tab123": {
+                    "listAll": [
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        },
+                        {"name":"name1",
+                        "field1":"field1",
+                        "firld2":"field2"
+                        }
+                    ],
+                    "listShow": [
+                        
+                    ],
+                    "search":{
+                        "fields":["name","field1"],
+                        "for":"na"
+                    },
+                    "state":{}
+                }
+            }
+        }
+    }
+    
 }

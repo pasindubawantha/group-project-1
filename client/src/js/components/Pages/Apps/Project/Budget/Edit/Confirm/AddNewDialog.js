@@ -1,0 +1,1 @@
+show only items in inventory

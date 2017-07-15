@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import Page from "./Pages/Page.js"
+import App from "./Pages/App.js"
 
 @connect((store) => {
 	return {//props
@@ -19,7 +19,7 @@ export default class ComponentArea extends React.Component {
 					break
 					}
 				default:{ 
-					return(<Page appID = "app123"/>)
+					return(<App appID = "app123"/>)
 					}
 			}
 	}
