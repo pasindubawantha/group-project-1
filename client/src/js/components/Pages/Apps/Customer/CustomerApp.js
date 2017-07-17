@@ -1,7 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 import SideMenu from "../../Components/SideMenu.js"
-//import MakePayments from "./MakePayments"
+import NewCustomer from "./NewCustomer"
+import PickCustomer from "./PickCustomer"
 
 @connect((store) => {
 	return {//props
@@ -9,7 +10,26 @@ import SideMenu from "../../Components/SideMenu.js"
 		app: store.apps.Customer
 	}
 },)
-export default class Cusotmer extends React.Component {
+export default class CusotmerApp extends React.Component {
+	getTab(){
+		if(this.props.url[2] == null){
+			return <h2> Welcome to Customer App </h2>
+		}
+		var tabViewID = this.props.url[2].viewID
+		switch(tabViewID){
+			case "CustomerAll":{
+				return(<PickCustomer />)
+				break	
+			}
+			case "CustomerNewCustomer":{
+				return(<NewCustomer />)
+				break
+			}
+			default : {
+				return <h2> Welcome to Customer App </h2>
+			}
+		}
+	}
 	render() {
 		var {menuItems , name, viewID} = this.props.app
 		var url = [{name:"Home" ,viewID:"home"},{name:name ,viewID:"Customer"}]
@@ -19,7 +39,7 @@ export default class Cusotmer extends React.Component {
 			  <SideMenu menuItems={menuItems} name={name} concatURL={url} />
 			  </div>
 			  <div class="col-md-9">
-
+			  {this.getTab()}
 			  </div>
 			</div>
 			)

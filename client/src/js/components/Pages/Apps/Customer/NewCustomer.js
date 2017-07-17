@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import ButtonLink from "../../../SubComponents/ButtonLink"
+import ButtonLink from "../../Components/ButtonLink"
 
 @connect((store) => {
 	return {//props
@@ -43,8 +43,9 @@ export default class NewCustomer extends React.Component {
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    	<div class="col-sm-offset-2 col-sm-7"><ButtonLink url={this.props.url.concat({name:'asd ', viewID:'asdsd'})} name="PickProject" onClick={this.confirm.bind(this)}/>
-			  </div>
+			    <div class="col-sm-offset-2 col-sm-7">
+			    	<ButtonLink url={this.props.url.concat({name:'asd ', viewID:'asdsd'})} name="PickProject" onClick={this.confirm.bind(this)}/>
+			  	</div>
 			  </div>
 			</form>
 			)

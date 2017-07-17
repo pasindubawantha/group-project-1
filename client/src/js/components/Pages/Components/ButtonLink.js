@@ -14,6 +14,6 @@ export default class Link extends React.Component {
 	}
 
 	render() {
-		return (<a class="btn btn-primary btn-lg active" role="button" onClick={this.onClickDo.bind(this)} >{this.props.name}</a>)
+		return (<a class="btn btn-primary active" role="button" onClick={this.onClickDo.bind(this)} >{this.props.name}</a>)
 	}
 }

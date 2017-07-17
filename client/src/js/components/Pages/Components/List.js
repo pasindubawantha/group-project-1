@@ -1,16 +1,21 @@
 import React from "react"
 import { connect } from "react-redux"
 
-//this is abstract
 export default class List extends React.Component {
 	constructor(){
 		super()
-		//this.props.dispatch(to get listall,, will fill show all too)
+		this.state = {
+			showList:[],
+			listAll:[],
+			search:{fields:null}
+		}
 	}
 	search(searchfor){
-		var {listAll , search} = this.props.tab
+		var {listAll , search} = this.state
+
 		if(searchfor == ""){
-			//this.props.dispatch( to show list listAll)
+			this.state.showList = listAll
+			this.state.render()
 		}else{
 			var showList = []
 			var strings = searchfor.toLowerCase()
@@ -24,7 +29,9 @@ export default class List extends React.Component {
 					for(var n in strings)
 						var str = strings[n]
 						if(listItem[field].includes(strings[n])){
-							showList.append(listItem)
+							console.log(showList)
+							showList.push(listItem)
+
 							break
 							found =true
 						}
@@ -34,13 +41,16 @@ export default class List extends React.Component {
 					}
 				}
 			}
-			this.props.dispatch(to show list showList)
+			this.state.showList = showList 
+			this.state.render()
+			//this.props.dispatch(to show list showList)
 		}
 	}
 	onChangeSearch(e){
 		this.search(e.target.value)
 	}
 
-	// render(){
-	// 	return(this.props.app[this.props.appID][this.props.tabID].showList.map(item => <a> </a>))
-	// }
+	render(){
+		return(<h3>no list</h3>)
+	}
+}

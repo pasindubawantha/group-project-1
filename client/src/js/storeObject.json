@@ -25,51 +25,6 @@
         }
     ],
     "apps": {
-        "app123": {
-            "name": "App1",
-            "menueItems": [
-                [
-                    {
-                        "name": "link1",
-                        "viewID": "view1238",
-                        "components": [
-                            "componentId1",
-                            "componentid2"
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "name": "Headlink2",
-                        "viewID": "url2"
-                    },
-                    {
-                        "name": "Sublink1",
-                        "viewID": "url3"
-                    }
-                ]
-            ],
-            "tab123": {
-                "listAll": [
-                    {"name":"name1",
-                    "field1":"field1",
-                    "firld2":"field2"
-                    },
-                    {"name":"name1",
-                    "field1":"field1",
-                    "firld2":"field2"
-                    }
-                ],
-                "listShow": [
-                    
-                ],
-                "search":{
-                    "fields":["name","field1"],
-                    "for":"na"
-                },
-                "state":{}
-            }
-        },
         "Admin": {
             "name": "Admin Management",
             "menuItems": [
@@ -110,45 +65,41 @@
                 ]
             ],
             "tabs":{
-                "tab123": {
-                    "listAll": [
-                        {"name":"name1",
-                        "field1":"field1",
+                "PickCustomer": {
+                    "state":{
+                        "listAll": [
+                        {"name":"kalisi",
+                        "customerID":"field123",
                         "firld2":"field2"
                         },
-                        {"name":"name1",
-                        "field1":"field1",
+                        {"name":"name2",
+                        "customerID":"field1345",
+                        "firld2":"field2"
+                        },
+                        {"name":"veli",
+                        "customerID":"field13456",
                         "firld2":"field2"
                         }
-                    ],
-                    "listShow": [
-                        
-                    ],
-                    "search":{
-                        "fields":["name","field1"],
-                        "for":"na"
-                    },
-                    "state":{}
+                        ],
+                        "search":{
+                            "fields":["name","customerID"]
+                        }
+                    }
                 },
-                "tab1234": {
-                    "listAll": [
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
-                        },
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
-                        }
-                    ],
-                    "listShow": [
-                        
-                    ],
-                    "search":{
-                        "fields":["name","field1"],
-                        "for":"na"
+                "NewCustomer": {
+                    "state":{
+                        "name":"",
+                        "address":"",
+                        "projectID":""
                     },
-                    "state":{}
+                    "NewProject":{
+                        "state":{},
+                        "PickTeam":{
+                            "state":{
+                        
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -323,6 +274,14 @@
                     "state":{}
                 }
             }
+        }
+    },
+    "state":{
+        "list":{
+            "id":"",
+            "all":[],
+            "show":[],
+            "selected":[]
         }
     }
     

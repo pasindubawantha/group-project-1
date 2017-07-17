@@ -4,6 +4,20 @@ const defaulSate = {
 
 export default function(state=defaulSate, action){
 	switch(action.type){
+		case "CUSTOMER_PICKCUSTOMER_SHOWLIST_UPDATE" : {
+			state = {...state, 
+				Customer: {...state.Customer,
+					tabs:{...state.Customer.tabs,
+						PickCustomer:{...state.Customer.tabs.PickCustomer,
+							state:{...state.Customer.tabs.PickCustomer.state,
+								"showList":action
+								}
+							}
+						}
+					} 
+				}
+			break;
+		}
 		case "CREATING_USER_SESSION" : {
 			state = {...state, 
 				SessionID: {fetched: false, 
