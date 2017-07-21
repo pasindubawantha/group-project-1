@@ -1,48 +1,26 @@
 import React from "react"
 import { connect } from "react-redux"
-import List from "../../../SubComponents/List"
+import PickList from "../../../Components/PickList"
 
 @connect((store) => {
 	return {//props
 		url: store.url,
-		tab: store.app.app123.tab123
+		employeeList: store.lists.employee.data
 	}
 },)
-export default class PickTeam extends List {
-	constructor(){
-		super()
-		this.state={
-			selected = []
-		}
-	}
-
-	onChangeCheckBox(e){
-
-	}
-
+export default class PickCustomer extends React.Component {
 	render(){
-			(<div>
-				<form class="form-inline">
-				  <div class="form-group">
-				    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-				    <input onChange={this.onChangeSearch.bind(this)} type="text" class="form-control" id="exampleInputAmount" placeholder="Amount"/>
-				  </div>
-				  <button type="submit" class="btn btn-primary">Transfer cash</button>
-				</form>
-
-				<form>
-				{this.state.selected.map(item => (<div class="input-group">
-					 <input type="checkbox"/>
-					<input onChange={this.onChangeCheckBox.bind(this)} type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input"/>
-					</div>))}
-				</form>
-
-				<form>
-					{this.props.tab.showList.map(item => (<div class="input-group">
-					 <input type="checkbox"/>
-					<input onChange={this.onChangeCheckBox.bind(this)} type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input"/>
-					</div>))}
-				</form>
-			</div>)
+		var fields = {
+			key:"customerID",
+			id:"customerID",
+			label:["name","customerID"],
+			search:["name"]
+		}
+		var headers = {
+			selected:"Selected Employees",
+			show:"Pick Employees"
+		}
+		var returnButton= {url: this.props.url.concat({ name:"Confirm New Project", viewID: "CustomerNewProjectConfirmNewProject"}), name:"Confirm"}
+		return (<PickList returnButton={returnButton} listID={this.props.url[this.props.url.length-1].viewID} listAll={this.props.employeeList} fields={fields} headers={headers} />)
 	}
 }

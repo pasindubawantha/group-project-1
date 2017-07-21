@@ -1,6 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
-import App from "./Pages/App.js"
+import App from "./Pages/Apps/App"
+import Notifications from "./Pages/Notifications/Notifications"
+import Desktop from "./Pages/Desktop/Desktop"
 
 @connect((store) => {
 	return {//props
@@ -11,17 +13,17 @@ export default class ComponentArea extends React.Component {
 	selectPage(url){
 		
 		if(url.length == 1)
-			return <h1> Home </h1>
-		else
-			switch(url[1].viewID){
-				case "Notification" :{
-					return <h1> Notifi </h1>
-					break
-					}
-				default:{ 
-					return(<App appID = "app123"/>)
-					}
+			switch(url[0].viewID){
+				case "Notifications" : 
+					{return (<Notifications/>) 
+					break}
+				case "Home" : 
+					{return <Desktop />
+					break } 
 			}
+		else{
+				return(<App appID ={url[1].viewID}/>)
+		}
 	}
 
 	render() {

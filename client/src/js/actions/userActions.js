@@ -5,6 +5,13 @@
 //import { fetchUser } from "./userAction"
 import axios from "axios";
 
+export function logoutUser(){
+	return {
+		type : "USER_LOGOUT",
+		payload: null
+	}
+}
+
 export function createUserSession(userName, password) {
 	return {
 		type: "CREATING_USER_SESSION",

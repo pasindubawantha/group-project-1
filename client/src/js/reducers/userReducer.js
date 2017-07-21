@@ -1,5 +1,23 @@
-export default function reducer(state={}, action){
+const defaultState = {
+        "status": {
+            "fetching": false,
+            "fetched": false,
+            "error": null
+        },
+        "sessionID": null,
+        "appList": [],
+        "name": null,
+        "companyName": null,
+        "companyLogo": null,
+        "avatar": null,
+        "email": null
+}
+
+export default function reducer(state=defaultState, action){
 	switch(action.type){
+		case "USER_LOGOUT" : {
+			state = defaultState
+		}
 		case "CREATING_USER_SESSION" : {
 			state = {...state, 
 				SessionID: {fetched: false, 

@@ -5,23 +5,25 @@
             "fetched": false,
             "error": null
         },
-        "SessionID": null,
+        "sessionID": 12,
         "appList": [
-            
-        ]
+            "Admin",
+            "Customer",
+            "Employee",
+            "Project",
+            "Reverse",
+            "Vendor"
+        ],
+        "name": "Darvin Helna",
+        "companyName": "Company Name",
+        "companyLogo": "./resources/user/Company_Name/logo.png",
+        "avatar": "./resources/user/Company_Name/darvin@company.com/avatar.png",
+        "email": "darvin@company.com"
     },
     "url": [
         {
             "name": "Home",
             "viewID": "Home"
-        },
-        {
-            "name": "notf",
-            "viewID": "app123"
-        },
-        {
-            "name": "APP1",
-            "viewID": "view1238"
         }
     ],
     "apps": {
@@ -41,11 +43,19 @@
                     }
                 ]
             ],
-            "tabs":{
+            "tabs": {
                 "AdminMakePayment": {
-                    "state":{}
+                    
                 },
-                "AdminViewAdminCosts": {}
+                "AdminViewAdminCosts": {
+                    
+                }
+            },
+            "depnedantLists": [
+                "employee"
+            ],
+            "icon": {
+                "src": "./resources/apps/Admin/icon.png"
             }
         },
         "Customer": {
@@ -64,47 +74,23 @@
                     }
                 ]
             ],
-            "tabs":{
-                "PickCustomer": {
-                    "state":{
-                        "listAll": [
-                        {"name":"kalisi",
-                        "customerID":"field123",
-                        "firld2":"field2"
-                        },
-                        {"name":"name2",
-                        "customerID":"field1345",
-                        "firld2":"field2"
-                        },
-                        {"name":"veli",
-                        "customerID":"field13456",
-                        "firld2":"field2"
-                        }
-                        ],
-                        "search":{
-                            "fields":["name","customerID"]
-                        }
-                    }
-                },
-                "NewCustomer": {
-                    "state":{
-                        "name":"",
-                        "address":"",
-                        "projectID":""
-                    },
-                    "NewProject":{
-                        "state":{},
-                        "PickTeam":{
-                            "state":{
+            "tabs": {
+                "ConfirmNewCustomer": {
+                    "state": {
                         
-                            }
-                        }
                     }
                 }
+            },
+            "depnedantLists": [
+                "customer",
+                "employee"
+            ],
+            "icon": {
+                "src": "./resources/apps/Customer/icon.png"
             }
         },
         "Employee": {
-            "name": "Customers",
+            "name": "Employees",
             "menuItems": [
                 [
                     {
@@ -123,31 +109,44 @@
                     }
                 ]
             ],
-            "tabs":{
+            "tabs": {
                 "tab123": {
                     "listAll": [
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
+                        {
+                            "name": "name1",
+                            "field1": "field1",
+                            "firld2": "field2"
                         },
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
+                        {
+                            "name": "name1",
+                            "field1": "field1",
+                            "firld2": "field2"
                         }
                     ],
                     "listShow": [
                         
                     ],
-                    "search":{
-                        "fields":["name","field1"],
-                        "for":"na"
+                    "search": {
+                        "fields": [
+                            "name",
+                            "field1"
+                        ],
+                        "for": "na"
                     },
-                    "state":{}
+                    "state": {
+                        
+                    }
                 }
+            },
+            "depnedantLists": [
+                "employee"
+            ],
+            "icon": {
+                "src": "./resources/apps/Employee/icon.png"
             }
         },
         "Project": {
-            "name": "Customers",
+            "name": "Projects",
             "menueItems": [
                 [
                     {
@@ -166,31 +165,45 @@
                     }
                 ]
             ],
-            "tabs":{
+            "tabs": {
                 "tab123": {
                     "listAll": [
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
+                        {
+                            "name": "name1",
+                            "field1": "field1",
+                            "firld2": "field2"
                         },
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
+                        {
+                            "name": "name1",
+                            "field1": "field1",
+                            "firld2": "field2"
                         }
                     ],
                     "listShow": [
                         
                     ],
-                    "search":{
-                        "fields":["name","field1"],
-                        "for":"na"
+                    "search": {
+                        "fields": [
+                            "name",
+                            "field1"
+                        ],
+                        "for": "na"
                     },
-                    "state":{}
+                    "state": {
+                        
+                    }
                 }
+            },
+            "depnedantLists": [
+                "employee",
+                "project"
+            ],
+            "icon": {
+                "src": "./resources/apps/Project/icon.png"
             }
         },
         "Reverse": {
-            "name": "Customers",
+            "name": "Reverse",
             "menuItems": [
                 [
                     {
@@ -209,31 +222,44 @@
                     }
                 ]
             ],
-            "tabs":{
+            "tabs": {
                 "tab123": {
                     "listAll": [
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
+                        {
+                            "name": "name1",
+                            "field1": "field1",
+                            "firld2": "field2"
                         },
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
+                        {
+                            "name": "name1",
+                            "field1": "field1",
+                            "firld2": "field2"
                         }
                     ],
                     "listShow": [
                         
                     ],
-                    "search":{
-                        "fields":["name","field1"],
-                        "for":"na"
+                    "search": {
+                        "fields": [
+                            "name",
+                            "field1"
+                        ],
+                        "for": "na"
                     },
-                    "state":{}
+                    "state": {
+                        
+                    }
                 }
+            },
+            "depnedantLists": [
+                "transaction"
+            ],
+            "icon": {
+                "src": "./resources/apps/Reverse/icon.png"
             }
         },
         "Vendor": {
-            "name": "Customers",
+            "name": "Vendors",
             "menuItems": [
                 [
                     {
@@ -252,37 +278,129 @@
                     }
                 ]
             ],
-            "tabs":{
+            "tabs": {
                 "tab123": {
                     "listAll": [
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
+                        {
+                            "name": "name1",
+                            "field1": "field1",
+                            "firld2": "field2"
                         },
-                        {"name":"name1",
-                        "field1":"field1",
-                        "firld2":"field2"
+                        {
+                            "name": "name1",
+                            "field1": "field1",
+                            "firld2": "field2"
                         }
                     ],
                     "listShow": [
                         
                     ],
-                    "search":{
-                        "fields":["name","field1"],
-                        "for":"na"
+                    "search": {
+                        "fields": [
+                            "name",
+                            "field1"
+                        ],
+                        "for": "na"
                     },
-                    "state":{}
+                    "state": {
+                        
+                    }
                 }
+            },
+            "depnedantLists": [
+                "vendor"
+            ],
+            "icon": {
+                "src": "./resources/apps/Vendor/icon.png"
             }
         }
     },
-    "state":{
-        "list":{
-            "id":"",
-            "all":[],
-            "show":[],
-            "selected":[]
+    "state": {
+        "list": {
+            "id": "",
+            "all": [
+                
+            ],
+            "show": [
+                
+            ],
+            "selected": [
+                
+            ],
+            "picked": ""
+        },
+        "upload": {
+            "id": "",
+            "uploading": false,
+            "uploadDone": false,
+            "uploadFail": false,
+            "uploadError": null
+        },
+        "form": {
+            "id": "",
+            "data": {
+                
+            }
+        }
+    },
+    "lists": {
+        "employee": {
+            "downloaded": true,
+            "data": [
+                {
+                    "name": "kalisi",
+                    "customerID": "field123",
+                    "firld2": "field2"
+                },
+                {
+                    "name": "name2",
+                    "customerID": "field1345",
+                    "firld2": "field2"
+                },
+                {
+                    "name": "veli",
+                    "customerID": "field13456",
+                    "firld2": "field2"
+                }
+            ]
+        },
+        "customer": {
+            "downloaded": true,
+            "data": [
+                {
+                    "name": "kalisi",
+                    "customerID": "field123",
+                    "firld2": "field2"
+                },
+                {
+                    "name": "name2",
+                    "customerID": "field1345",
+                    "firld2": "field2"
+                },
+                {
+                    "name": "veli",
+                    "customerID": "field13456",
+                    "firld2": "field2"
+                }
+            ]
+        },
+        "vendor": {
+            "downloaded": true,
+            "data": [
+                
+            ]
+        },
+        "project": {
+            "downloaded": true,
+            "data": [
+                
+            ]
+        },
+        "transaction": {
+            "downloaded": true,
+            "data": [
+                
+            ]
         }
     }
-    
 }

@@ -4,8 +4,6 @@ import { updateListAll, updateListShow, updateListSelected, updateListID } from 
 import { find, deleteElement, findNull} from "./arrayOpps"
 import ButtonLink from "./ButtonLink"
 
-//import $ from "jquery"
-
 @connect((store) => {
 	return {
 		url: store.url,
@@ -18,11 +16,10 @@ export default class PickCustomer extends React.Component {
 		this.state = {searched:""}
 	}
 	componentWillMount(){
-		console.log("mounted")
 		this.props.dispatch(updateListAll(this.props.listAll))
 		this.props.dispatch(updateListShow(this.props.listAll))
 		this.props.dispatch(updateListSelected([null]))
-		this.props.dispatch(updateListID(this.props.viewID))
+		this.props.dispatch(updateListID(this.props.listID))
 	}
 
 	onChangeCheckBox(e){
@@ -96,7 +93,7 @@ export default class PickCustomer extends React.Component {
 	}
 	
 	confirm(){
-
+		
 	}
 
 	render(){
@@ -106,7 +103,7 @@ export default class PickCustomer extends React.Component {
 				<form class="form-inline">
 				  <div class="form-group">
 				    	<input onChange={this.onChangeSearch.bind(this)} type="text" class="form-control" id="exampleInputAmount" placeholder="Search"/>
-				  		<ButtonLink url={this.props.url.concat({name:'asd ', viewID:'asdsd'})} name="PickProject" onClick={this.confirm.bind(this)}/>
+				  		<ButtonLink url={this.props.returnButton.url} name={this.props.returnButton.name} onClick={this.confirm.bind(this)}/>
 				  </div>
 				</form>
 

@@ -8,8 +8,8 @@ import {goTo} from"../../../actions/urlActions.js"
 	}
 },)
 export default class Link extends React.Component {
-	onClickDo(){
-		this.props.onClick()
+	onClickDo(e){
+		this.props.onClick(e)
 		this.props.dispatch(goTo(this.props.url))
 	}
 

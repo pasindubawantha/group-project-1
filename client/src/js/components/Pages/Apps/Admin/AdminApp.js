@@ -12,6 +12,9 @@ import ViewAdminCosts from "./ViewAdminCosts"
 },)
 export default class AdminApp extends React.Component {
 	getTab(){
+		if(this.props.url[2] == null){
+			return <h2> Welcome to Admin App </h2>
+		}
 		var tabViewID = this.props.url[2].viewID
 		switch(tabViewID){
 			case "AdminMakePayment":{

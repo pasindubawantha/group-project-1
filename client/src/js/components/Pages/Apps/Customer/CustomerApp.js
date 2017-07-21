@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import SideMenu from "../../Components/SideMenu.js"
 import NewCustomer from "./NewCustomer"
 import PickCustomer from "./PickCustomer"
+import ViewCustomer from "./ViewCustomer"
 
 @connect((store) => {
 	return {//props
@@ -23,6 +24,10 @@ export default class CusotmerApp extends React.Component {
 			}
 			case "CustomerNewCustomer":{
 				return(<NewCustomer />)
+				break
+			}
+			case "CustomerViewCustomer":{
+				return(<ViewCustomer />)
 				break
 			}
 			default : {

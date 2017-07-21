@@ -1,37 +1,49 @@
 import React from "react"
 import { connect } from "react-redux"
+import ListItem from "./ListItem"
+import { updateListAll, updateListShow, updateListID, updateListPicked } from "../../../actions/stateActions"
 
-export default class List extends React.Component {
-	constructor(){
-		super()
-		this.state = {
-			showList:[],
-			listAll:[],
-			search:{fields:null}
-		}
+@connect((store) => {
+	return {
+		url: store.url,
+		list: store.state.list
 	}
-	search(searchfor){
-		var {listAll , search} = this.state
+},)
+export default class PickCustomer extends React.Component {
+	constructor(props){
+		super()
+		this.state = {searched:""}
+	}
 
+	componentWillMount(){
+		this.props.dispatch(updateListAll(this.props.listAll))
+		this.props.dispatch(updateListShow(this.props.listAll))
+		this.props.dispatch(updateListID(this.props.listID))
+		this.props.dispatch(updateListPicked(null))
+	}
+
+	onChangeSearch(e){
+		this.state.searched = e.target.value
+		if(this.state.searched  == null){
+			var searchfor = ""
+		}else{
+			var searchfor = this.state.searched 
+		}
 		if(searchfor == ""){
-			this.state.showList = listAll
-			this.state.render()
+			this.props.dispatch(updateListShow(this.props.list.all))
 		}else{
 			var showList = []
 			var strings = searchfor.toLowerCase()
 			strings = strings.split(" ")
 			var found = false
-			for(var i in listAll){
+			for(var i in this.props.list.all){
 				found = false
-				var listItem = listAll[i]
-				for(var j in search.fields){
-					var field = search.fields[j]
+				var listItem = this.props.list.all[i]
+				for(var j in this.props.fields.search){
+					var field = this.props.fields.search[j]
 					for(var n in strings)
-						var str = strings[n]
-						if(listItem[field].includes(strings[n])){
-							console.log(showList)
+						if(listItem[field].includes(strings[n]) && strings[n] != ""){
 							showList.push(listItem)
-
 							break
 							found =true
 						}
@@ -41,16 +53,37 @@ export default class List extends React.Component {
 					}
 				}
 			}
-			this.state.showList = showList 
-			this.state.render()
-			//this.props.dispatch(to show list showList)
+			this.props.dispatch(updateListShow(showList))
 		}
+		this.forceUpdate()
 	}
-	onChangeSearch(e){
-		this.search(e.target.value)
+	
+	confirm(){
+		
 	}
 
 	render(){
-		return(<h3>no list</h3>)
+		return (
+			<div>
+				<form class="form-inline">
+				  <div class="form-group">
+				    	<input onChange={this.onChangeSearch.bind(this)} type="text" class="form-control" id="exampleInputAmount" placeholder="Search"/>
+				  </div>
+				</form>
+
+				<row>
+					<h4>{this.props.headers.show}</h4>
+					<div class="list-group">
+						{this.props.list.show.map(
+							function(item) {
+								var { label, key, id } = this.props.fields
+								if(item != null){ 
+									return(<ListItem key={item[key]} id={id} item={item} heading={item[label[0]]} textFields={label.slice(1, label.length)} url={this.props.nextURL} />)
+								}
+							}, this)
+						}
+					</div>
+				</row>
+			</div>)
 	}
 }
