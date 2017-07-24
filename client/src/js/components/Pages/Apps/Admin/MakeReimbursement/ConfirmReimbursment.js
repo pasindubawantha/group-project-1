@@ -6,8 +6,8 @@ import { connect } from "react-redux"
 		url: store.url
 	}
 },)
-export default class ViewAdminCosts extends React.Component {
+export default class ConfirmReimbursment extends React.Component {
 	render() {
-		return  (<h1>vewi admin costs</h1>)
+		return  (<h1>ConfirmReimbursment</h1>)
 	}
 }

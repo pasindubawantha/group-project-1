@@ -13,15 +13,10 @@ import { find } from "../../Components/arrayOpps"
 export default class NewCustomer extends React.Component {
 	constructor(){
 		super()
-		this.state = {
-			name:0,
-			address:""
-		}
+		this.state = {}
 	}
 	confirm(){
 		//this.props.dispatch()
-		console.log(this.state.ammount)
-		console.log(this.state.discription)
 	}
 	changeName(e){
 		this.state.name = e.target.value

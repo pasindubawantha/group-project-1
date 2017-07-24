@@ -2,7 +2,6 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 
-import TestComponent from "./components/TestComponent"
 import MainFrame from "./components/MainFrame.js"
 import store from "./store"
 

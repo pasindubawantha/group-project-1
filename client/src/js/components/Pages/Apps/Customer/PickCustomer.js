@@ -11,9 +11,9 @@ import List from "../../Components/List"
 export default class PickCustomer extends React.Component {
 	render(){
 		var fields = {
-			key:"customerID",
-			id:"customerID",
-			label:["name","customerID"],
+			key:"id",
+			id:"id",
+			label:["name","id"],
 			search:["name"]
 		}
 		var headers = {

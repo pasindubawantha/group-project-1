@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import SideMenu from "../../Components/SideMenu.js"
 import MakePayments from "./MakePayments"
 import ViewAdminCosts from "./ViewAdminCosts"
+import MakeReimbursement from "./MakeReimbursement/MakeReimbursement"
 
 @connect((store) => {
 	return {//props
@@ -23,6 +24,10 @@ export default class AdminApp extends React.Component {
 			}
 			case "AdminViewAdminCosts":{
 				return(<ViewAdminCosts />)
+				break
+			}
+			case"AdminMakeReimbursementPickEmployee":{
+				return(<MakeReimbursement />)
 				break
 			}
 			default : {

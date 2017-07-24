@@ -8,13 +8,13 @@ import PickList from "../../../Components/PickList"
 		employeeList: store.lists.employee.data
 	}
 },)
-export default class PickCustomer extends React.Component {
+export default class SelectReimbursments extends React.Component {
 	render(){
 		var fields = {
 			key:"id",
 			id:"id",
-			label:["name","id","designation"],
-			search:["name","designation"]
+			label:["name", "description"],
+			search:["name"]
 		}
 		var headers = {
 			selected:"Selected Employees",

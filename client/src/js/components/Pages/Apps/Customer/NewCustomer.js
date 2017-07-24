@@ -50,7 +50,7 @@ export default class NewCustomer extends React.Component {
 				</form>
 			)
 		}else{
-			return(<NewProject state={this.state} />)
+			return(<NewProject customerData={this.state} />)
 		}
 	}
 }

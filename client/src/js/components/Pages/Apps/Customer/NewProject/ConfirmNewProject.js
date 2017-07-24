@@ -11,6 +11,10 @@ import PickList from "../../../Components/PickList"
 },)
 export default class ConfirmNewProject extends React.Component {
 	render(){
-		return <p>a</p>
+		console.log(this.props.team)
+		console.log(this.props.data)
+		return (<div>
+			a
+			</div>)
 	}
 }

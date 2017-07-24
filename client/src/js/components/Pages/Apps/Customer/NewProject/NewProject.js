@@ -7,7 +7,7 @@ import ConfirmNewProject from "./ConfirmNewProject"
 
 @connect((store) => {
 	return {//props
-		url: store.url
+		url: store.url,
 	}
 },)
 export default class NewProject extends React.Component {
@@ -15,13 +15,15 @@ export default class NewProject extends React.Component {
 		super()
 		this.state = props.state
 		this.state = {
-			name:"",
-			address:"",
+			projectName:"",
+			projectAddress:"",
 			discription:"",
 			budgetURI:""
 		}
 	}
 	buttonAction(e){
+		this.state.customerName = this.props.customerData.customerName
+		this.state.customerAddress = this.props.customerData.customerAddress
 		this.props.dispatch(updateFormData(this.state))
 		console.log(this.state.ammount)
 		console.log(this.state.discription)

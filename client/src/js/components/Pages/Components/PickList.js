@@ -16,8 +16,8 @@ export default class PickCustomer extends React.Component {
 		this.state = {searched:""}
 	}
 	componentWillMount(){
-		this.props.dispatch(updateListAll(this.props.listAll))
-		this.props.dispatch(updateListShow(this.props.listAll))
+		this.props.dispatch(updateListAll(this.props.listAll.slice()))
+		this.props.dispatch(updateListShow(this.props.listAll.slice()))
 		this.props.dispatch(updateListSelected([null]))
 		this.props.dispatch(updateListID(this.props.listID))
 	}
