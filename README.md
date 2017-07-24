@@ -24,6 +24,7 @@ Libraries:
 * [Redux (client)](http://redux.js.org/)
 * [nodejs-mysql (server)](https://www.npmjs.com/package/nodejs-mysql)
 * [express (server)](https://www.npmjs.com/package/express)
+* [bcrypt(server)](https://www.npmjs.com/package/bcrypt-nodejs)
 
 on Language:
 * [Babel compilers guide to es2015](https://babeljs.io/learn-es2015/)
