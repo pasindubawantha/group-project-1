@@ -20,6 +20,7 @@ Libraries:
 * [react-notifications](https://www.npmjs.com/package/react-notifications)
 * [axios](https://www.npmjs.com/package/axios)
 * [Redux](http://redux.js.org/)
+* [nodejs-mysql](https://www.npmjs.com/package/nodejs-mysql)
 
 on Language:
 * [Babel compilers guide to es2015](https://babeljs.io/learn-es2015/)
