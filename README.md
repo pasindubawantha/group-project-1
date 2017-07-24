@@ -16,6 +16,7 @@ Guides:
 * [React & Redux(client)](https://www.youtube.com/watch?v=MhkGQAoc7bc&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b)
 * [Nodejs(server)](https://www.youtube.com/watch?v=xT2AvjQ7q9E)
 * [How to buidl a RESTful api](http://scottksmith.com/blog/2014/05/02/building-restful-apis-with-node/)
+* [REST api standards](https://en.wikipedia.org/wiki/Representational_state_transfer#Relationship_between_URL_and_HTTP_methods)
 
 Libraries:
 * [react-notifications (client)](https://www.npmjs.com/package/react-notifications)
