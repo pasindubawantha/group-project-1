@@ -13,14 +13,16 @@ and then `npm start`
 
 Guides:
 * [WebPack kind of our IDE](https://www.youtube.com/watch?v=9kJVYpOqcVU)
-* [React & Redux for client](https://www.youtube.com/watch?v=MhkGQAoc7bc&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b)
-* [Nodejs for server](https://www.youtube.com/watch?v=xT2AvjQ7q9E)
+* [React & Redux(client)](https://www.youtube.com/watch?v=MhkGQAoc7bc&list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b)
+* [Nodejs(server)](https://www.youtube.com/watch?v=xT2AvjQ7q9E)
+* [How to buidl a RESTful api](http://scottksmith.com/blog/2014/05/02/building-restful-apis-with-node/)
 
 Libraries:
-* [react-notifications](https://www.npmjs.com/package/react-notifications)
-* [axios](https://www.npmjs.com/package/axios)
-* [Redux](http://redux.js.org/)
-* [nodejs-mysql](https://www.npmjs.com/package/nodejs-mysql)
+* [react-notifications (client)](https://www.npmjs.com/package/react-notifications)
+* [axios (client)](https://www.npmjs.com/package/axios)
+* [Redux (client)](http://redux.js.org/)
+* [nodejs-mysql (server)](https://www.npmjs.com/package/nodejs-mysql)
+* [express (server)](https://www.npmjs.com/package/express)
 
 on Language:
 * [Babel compilers guide to es2015](https://babeljs.io/learn-es2015/)
