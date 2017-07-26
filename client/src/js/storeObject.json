@@ -52,7 +52,7 @@
                 }
             },
             "depnedantLists": [
-                "employee"
+                "employees"
             ],
             "icon": {
                 "src": "./resources/apps/Admin/icon.png"
@@ -82,8 +82,8 @@
                 }
             },
             "depnedantLists": [
-                "customer",
-                "employee"
+                "customers",
+                "employees"
             ],
             "icon": {
                 "src": "./resources/apps/Customer/icon.png"
@@ -139,7 +139,7 @@
                 }
             },
             "depnedantLists": [
-                "employee"
+                "employees"
             ],
             "icon": {
                 "src": "./resources/apps/Employee/icon.png"
@@ -195,8 +195,8 @@
                 }
             },
             "depnedantLists": [
-                "employee",
-                "project"
+                "employees",
+                "projects"
             ],
             "icon": {
                 "src": "./resources/apps/Project/icon.png"
@@ -252,7 +252,7 @@
                 }
             },
             "depnedantLists": [
-                "transaction"
+                "transactions"
             ],
             "icon": {
                 "src": "./resources/apps/Reverse/icon.png"
@@ -308,12 +308,15 @@
                 }
             },
             "depnedantLists": [
-                "vendor"
+                "vendors"
             ],
             "icon": {
                 "src": "./resources/apps/Vendor/icon.png"
             }
         }
+    },
+    "desktop":{
+        "downloaded":false
     },
     "state": {
         "list": {
@@ -344,63 +347,35 @@
         }
     },
     "lists": {
-        "employee": {
-            "downloaded": true,
-            "data": [
-                {
-                    "name": "kalisi",
-                    "customerID": "field123",
-                    "firld2": "field2"
-                },
-                {
-                    "name": "name2",
-                    "customerID": "field1345",
-                    "firld2": "field2"
-                },
-                {
-                    "name": "veli",
-                    "customerID": "field13456",
-                    "firld2": "field2"
-                }
-            ]
+        "employees": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": []
         },
-        "customer": {
-            "downloaded": true,
-            "data": [
-                {
-                    "name": "kalisi",
-                    "customerID": "field123",
-                    "firld2": "field2"
-                },
-                {
-                    "name": "name2",
-                    "customerID": "field1345",
-                    "firld2": "field2"
-                },
-                {
-                    "name": "veli",
-                    "customerID": "field13456",
-                    "firld2": "field2"
-                }
-            ]
+        "customers": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": []
         },
-        "vendor": {
-            "downloaded": true,
-            "data": [
-                
-            ]
+        "vendors": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": []
         },
-        "project": {
-            "downloaded": true,
-            "data": [
-                
-            ]
+        "projects": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": []
         },
-        "transaction": {
-            "downloaded": true,
-            "data": [
-                
-            ]
+        "transactions": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": []
         }
     }
 }

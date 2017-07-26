@@ -1,30 +1,8 @@
 import axios from "axios";
 
-export function fetchList(listType) {
-	switch(listType){
-		case "vendor": {
-			return {
-				type: "FETCHINGING_LIST",
-				payload: {
-					userName: 'ads',
-					password: 'asdsf'
-					}
-				}
-			break;
-		}
-		case "customer": {
-
-			break;
-		}
-	}
-}
-
-export function setUserName(name){
-	return {
-		type: "CREATING_USER_SESSION_REJECTED",
-		payload: {
-			userName: 'ads',
-			password: 'asdsf'
-		}
-	}
+export function fetchList(listName) {
+	return{
+		type: "FETCHING_LIST_"+listName,
+		payload: axios.get("http://localhost:3000/api/"+listName)
+	}	
 }

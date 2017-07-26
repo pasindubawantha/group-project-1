@@ -18,7 +18,7 @@ export default class ComponentArea extends React.Component {
 					{return (<Notifications/>) 
 					break}
 				case "Home" : 
-					{return <Desktop />
+					{return (<Desktop />)
 					break } 
 			}
 		else{

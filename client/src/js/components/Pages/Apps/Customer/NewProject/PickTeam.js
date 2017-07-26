@@ -5,7 +5,7 @@ import PickList from "../../../Components/PickList"
 @connect((store) => {
 	return {//props
 		url: store.url,
-		employeeList: store.lists.employee.data
+		employeeList: store.lists.employees.data
 	}
 },)
 export default class PickCustomer extends React.Component {

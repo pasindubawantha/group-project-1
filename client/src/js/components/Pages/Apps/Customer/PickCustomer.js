@@ -5,7 +5,7 @@ import List from "../../Components/List"
 @connect((store) => {
 	return {//props
 		url: store.url,
-		customersList: store.lists.customer.data
+		customersList: store.lists.customers.data
 	}
 },)
 export default class PickCustomer extends React.Component {

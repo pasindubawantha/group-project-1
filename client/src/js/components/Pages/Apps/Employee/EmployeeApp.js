@@ -11,12 +11,32 @@ import SideMenu from "../../Components/SideMenu.js"
 export default class EmployeeApp extends React.Component {
 	getTab(){
 		if(this.props.url[2] == null){
-			return <h2> Welcome to Customer App </h2>
+			return <h2> Welcome to Employee App </h2>
 		}
 		var tabViewID = this.props.url[2].viewID
 		switch(tabViewID){
 			default : {
-				return <h2> Welcome to Customer App </h2>
+				return <h2> Welcome to Employee App </h2>
+			}
+		}
+	}
+	getSideMenu(){
+		var url
+		if(this.props.url[2] == null){
+			url = [{name:"Home" ,viewID:"home"},{name:name ,viewID:"Employee"}]
+			return <SideMenu menuItems={this.props.app.menuItems} name={this.props.app.name} concatURL={this.props.url} />
+		}
+		var tabViewID = this.props.url[2].viewID
+		url = [{name:"Home" ,viewID:"home"},{name:name ,viewID:"Employee"}].concat(this.props.url[2])
+		switch(this.props.url[2].viewID){
+			case "EmployeeViewEmployee" : {
+				return <SideMenu menuItems={this.props.app.tabs["ViewEmployee"].menuItems} name={this.props.app.tabes["ViewEmployee"].name} concatURL={this.props.url} />
+				break
+			}
+			
+			default : {
+				url = [{name:"Home" ,viewID:"home"},{name:name ,viewID:"Employee"}]
+				return <SideMenu menuItems={this.props.app.menuItems} name={this.props.app.name} concatURL={this.props.url} />
 			}
 		}
 	}
@@ -26,7 +46,7 @@ export default class EmployeeApp extends React.Component {
 		return  (
 			<div class="row">
 			  <div class="col-md-3">
-			  <SideMenu menuItems={menuItems} name={name} concatURL={url} />
+			  {this.getSideMenu()}
 			  </div>
 			  <div class="col-md-9">
 			  {this.getTab()}

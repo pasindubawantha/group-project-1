@@ -20,7 +20,7 @@ import reducer from "./reducers"
 //const routerHistory = routerMiddleware(history)
 
 //const middleWare = applyMiddleware(routerHistory ,logger() , promise(), thunk);
-const middleWare = applyMiddleware(logger() , promise(), thunk);
+const middleWare = applyMiddleware(thunk, promise(), logger());
 const initialState = initialStateObject
 
 // const initialState = {
