@@ -11,56 +11,67 @@ import ConfirmNewProject from "./ConfirmNewProject"
 	}
 },)
 export default class NewProject extends React.Component {
-	constructor(props){
-		super()
-		this.state = props.state
+	componentWillMount(){
 		this.state = {
-			projectName:"",
-			projectAddress:"",
-			discription:"",
-			budgetURI:""
+			projectName:null,
+			projectAddress:null,
+			projectStartDate:null,
+			projectEndDate:null
 		}
 	}
 	buttonAction(e){
+		this.state.customerId = this.props.customerData.customerId
 		this.state.customerName = this.props.customerData.customerName
 		this.state.customerAddress = this.props.customerData.customerAddress
 		this.props.dispatch(updateFormData(this.state))
-		console.log(this.state.ammount)
-		console.log(this.state.discription)
-		console.log(e.target)
 	}
-	changeAmmount(e){
-		this.state.ammount = e.target.value
+	changeName(e){
+		this.state.projectName = e.target.value
 	}
-	changeDescription(e){
-		this.state.discription = e.target.value
+	changeAddress(e){
+		this.state.projectAddress = e.target.value
+	}
+	changeStartDate(e){
+		this.state.projectStartDate = e.target.value
+	}
+	changeEndDate(e){
+		this.state.projectEndDate = e.target.value
 	}
 
 	render() {
 		if(this.props.url[4] == null){
 			return  (
 				<form class="form-horizontal">
-				  <div class="form-group">
-				    <label for="inputDetails" class="col-sm-2 control-label">Details</label>
-				    <div class="col-sm-7">
-				      <input onChange={this.changeDescription.bind(this)} type="text" class="form-control" id="inputEmail3" placeholder="Details"/>
-				    </div>
-				  </div>
-				  <div class="form-group">
-				    <label for="inputAmmount" class="col-sm-2 control-label">Ammount</label>
-				    <div class="col-sm-7">
-				     <div class="input-group">
-				    	<span class="input-group-addon">Rs</span>
-				      <input onChange={this.changeAmmount.bind(this)} type="number" class="form-control" id="inputPassword3" placeholder="Ammount"/>
-				      <span class="input-group-addon">.00</span>
-				      </div>
-				    </div>
-				  </div>
-				  <div class="form-group">
-				    <div class="col-sm-offset-2 col-sm-7">
-				      <ButtonLink url={this.props.url.concat({name:'Pick Project Team', viewID:'CustomerNewProjectPickTeam'})} name="Confirm" onClick={this.buttonAction.bind(this)}/>
-				    </div>
-				  </div>
+					<div class="form-group">
+				    	<label class="col-sm-2 control-label">Name</label>
+				    	<div class="col-sm-7">
+				      		<input onChange={this.changeName.bind(this)} type="text" class="form-control" placeholder="Name"/>
+				    	</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label class="col-sm-2 control-label">Address</label>
+				    	<div class="col-sm-7">
+				      		<input onChange={this.changeAddress.bind(this)} type="text" class="form-control" placeholder="Address"/>
+				    	</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label class="col-sm-2 control-label">Starting Date</label>
+				    	<div class="col-sm-7">
+				      		<input onChange={this.changeStartDate.bind(this)} type="date" class="form-control" placeholder="yyyy/mm/dd" />
+				    	</div>
+				  	</div>
+				  	<div class="form-group">
+				    	<label class="col-sm-2 control-label">End Date</label>
+				    	<div class="col-sm-7">
+				      		<input onChange={this.changeEndDate.bind(this)} type="date" class="form-control" placeholder="mm/dd/yyyy" />
+				    	</div>
+				  	</div>
+
+				  	<div class="form-group">
+				    	<div class="col-sm-offset-2 col-sm-7">
+				      		<ButtonLink url={this.props.url.concat({name:'Pick Project Team', viewID:'CustomerNewProjectPickTeam'})} name="Confirm" onClick={this.buttonAction.bind(this)}/>
+				    	</div>
+				  	</div>
 				</form>
 			)
 		}else{

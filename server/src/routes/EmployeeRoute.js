@@ -6,6 +6,7 @@ router.get('/:id?',function(req, res){
     if(req.params.id){ 
         Employee.getEmployeeById(req.params.id, function(err, rows){
             if(err){
+                res.status(400)
                 res.json(err)
             }else{
                 res.json(rows)
@@ -14,6 +15,7 @@ router.get('/:id?',function(req, res){
     }else{
         Employee.getAllEmployees(function(err, rows){
             if(err){
+                res.status(400)
                 res.json(err)
             }else{
                 res.json(rows)
@@ -25,6 +27,7 @@ router.get('/:id?',function(req, res){
 router.post('/', function(req, res){
     Employee.addEmployee(req.body, function(err, count){
         if(err){
+            res.status(400)
             res.json(err)
         }else{
             res.json(count)
@@ -35,6 +38,7 @@ router.post('/', function(req, res){
 router.delete('/:id',function(req, res){
     Employee.deleteEmployee(req.params.id, function(err, count){
         if(err){
+            res.status(400)
             res.json(err)
         }else{
             res.json(count)
@@ -45,6 +49,7 @@ router.delete('/:id',function(req, res){
 router.put('/:id', function(req, res){
     Employee.updateTask(req.params.id , req.body , function(err, rows){
         if(err){
+            res.status(400)
             res.json(err)
         }else{
             res.json(rows);

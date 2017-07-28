@@ -5,6 +5,7 @@ var authenticator = require('./middleware/authenticator')
 
 var app = express();
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
       extended: true
 }));
@@ -25,9 +26,16 @@ var router = express.Router()
 
 var EmployeeRoute = require("./routes/EmployeeRoute")
 var CustomerRoute = require("./routes/CustomerRoute")
+var ProjectRoute = require("./routes/ProjectRoute")
+var TeamMember = require("./routes/TeamMemberRoute")
+var CustomerPayment = require("./routes/CustomerPaymentRoute")
+var Vendors = require("./routes/VendorRoute")
 router.use('/employees', EmployeeRoute)
 router.use('/customers', CustomerRoute)
-
+router.use('/projects', ProjectRoute)
+router.use('/teamMembers', TeamMember)
+router.use('/customerPayments', CustomerPayment)
+router.use('/vendors', Vendors)
 
 
 

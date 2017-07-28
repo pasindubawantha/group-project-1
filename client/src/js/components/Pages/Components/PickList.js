@@ -11,15 +11,16 @@ import ButtonLink from "./ButtonLink"
 	}
 },)
 export default class PickCustomer extends React.Component {
-	constructor(props){
-		super()
-		this.state = {searched:""}
-	}
 	componentWillMount(){
-		this.props.dispatch(updateListAll(this.props.listAll.slice()))
-		this.props.dispatch(updateListShow(this.props.listAll.slice()))
-		this.props.dispatch(updateListSelected([null]))
-		this.props.dispatch(updateListID(this.props.listID))
+		if(this.props.listAll == null || this.props.listAll.length == 0){
+			NotificationManager.info('List is empty')
+		}else{
+			this.state = {searched:""}
+			this.props.dispatch(updateListAll(this.props.listAll.slice()))
+			this.props.dispatch(updateListShow(this.props.listAll.slice()))
+			this.props.dispatch(updateListSelected([null]))
+			this.props.dispatch(updateListID(this.props.listID))
+		}
 	}
 
 	onChangeCheckBox(e){
@@ -97,7 +98,9 @@ export default class PickCustomer extends React.Component {
 	}
 
 	render(){
-
+		if(this.props.listAll == null || this.props.listAll.length == 0){
+			return(<p>Nothing to show</p>)
+		}else{
 			return (
 			<div>
 				<form class="form-inline">
@@ -136,5 +139,6 @@ export default class PickCustomer extends React.Component {
 					</ul>
 				</row>
 			</div>)
+		}
 	}
 }

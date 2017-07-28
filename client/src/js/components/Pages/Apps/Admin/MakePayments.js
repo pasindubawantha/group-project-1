@@ -15,6 +15,7 @@ export default class MakePayments extends React.Component {
 		this.state = {}
 	}
 	confirmPayment(e){
+		e.target.disabled = true
 		console.log(e)
 		console.log(this.state.ammount)
 		console.log(this.state.discription)

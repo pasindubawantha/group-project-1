@@ -1,6 +1,8 @@
-export function pickCustomerUpdateShowList(showList) {
+import axios from "axios";
+
+export function getCustomerDetails(id) {
 	return{
-		type:"CUSTOMER_PICKCUSTOMER_SHOWLIST_UPDATE",
-		payload:showList
+		type:"CUSTOMER_CUSTOMERVIEW_GET",
+		payload:axios.get("/customers/"+id)
 	}
 }

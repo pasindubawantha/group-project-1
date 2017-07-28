@@ -3,7 +3,9 @@ import { connect } from "react-redux"
 import SideMenu from "../../Components/SideMenu.js"
 import NewCustomer from "./NewCustomer"
 import PickCustomer from "./PickCustomer"
-import ViewCustomer from "./ViewCustomer"
+import ViewCustomer from "./ViewCustomer/ViewCustomer"
+import EditCustomer from "./ViewCustomer/EditCustomer"
+import MakePayment from "./ViewCustomer/MakePayment/MakePayment"
 
 @connect((store) => {
 	return {//props
@@ -30,18 +32,56 @@ export default class CusotmerApp extends React.Component {
 				return(<ViewCustomer />)
 				break
 			}
+			case "CustomerEditCustomer":{
+				return(<EditCustomer />)
+				break
+			}
+			case "CustomerMakePayment":{
+				return(<MakePayment />)
+				break
+			}
+			default : {
+				return <h2> Welcome to Customer App </h2>
+			}
+		}
+	}
+	getSideMenue(){
+		var url = [{name:"Home" ,viewID:"Home"},{name:this.props.app.name ,viewID:"Customer"}]
+		if(this.props.url[2] == null){
+			return(<SideMenu menuItems={this.props.app.menuItems} name={this.props.app.name} concatURL={url} />)
+		}
+		var tabViewID = this.props.url[2].viewID
+		switch(tabViewID){
+			case "CustomerAll":{
+				return(<SideMenu menuItems={this.props.app.menuItems} name={this.props.app.name} concatURL={url} />)
+				break	
+			}
+			case "CustomerNewCustomer":{
+				return(<SideMenu menuItems={this.props.app.menuItems} name={this.props.app.name} concatURL={url} />)
+				break
+			}
+			case "CustomerViewCustomer":{
+				return(<SideMenu menuItems={this.props.app.tabs.ViewCustomer.menuItems} name={this.props.app.tabs.ViewCustomer.name} concatURL={url} />)
+				break
+			}
+			case "CustomerEditCustomer":{
+				return(<SideMenu menuItems={this.props.app.tabs.ViewCustomer.menuItems} name={this.props.app.tabs.ViewCustomer.name} concatURL={url} />)
+				break
+			}
+			case "CustomerMakePayment":{
+				return(<SideMenu menuItems={this.props.app.tabs.ViewCustomer.menuItems} name={this.props.app.tabs.ViewCustomer.name} concatURL={url} />)
+				break
+			}
 			default : {
 				return <h2> Welcome to Customer App </h2>
 			}
 		}
 	}
 	render() {
-		var {menuItems , name, viewID} = this.props.app
-		var url = [{name:"Home" ,viewID:"Home"},{name:name ,viewID:"Customer"}]
 		return  (
 			<div class="row">
 			  <div class="col-md-3">
-			  <SideMenu menuItems={menuItems} name={name} concatURL={url} />
+			  {this.getSideMenue()}
 			  </div>
 			  <div class="col-md-9">
 			  {this.getTab()}

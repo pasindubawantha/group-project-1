@@ -1,9 +1,8 @@
 var authenticator = function(object, name){
 	return function (req, res, next) {
-		console.log(req.headers);
-		console.log(req.url);
+		//console.log(req.headers);
+		//console.log(req.url);
 		console.log(req.method)
-		req.body[name] = object
 		if(req.headers.sesionid == '0001' || true){
 			next()
 		}else{

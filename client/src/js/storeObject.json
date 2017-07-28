@@ -18,7 +18,13 @@
         "companyName": "Company Name",
         "companyLogo": "./resources/user/Company_Name/logo.png",
         "avatar": "./resources/user/Company_Name/darvin@company.com/avatar.png",
-        "email": "darvin@company.com"
+        "email": "darvin@company.com",
+        "defaults":{
+            "projectId":4001,
+            "customerId":3001,
+            "vendorId":6001,
+            "stageId":5001
+        }
     },
     "url": [
         {
@@ -79,11 +85,26 @@
                     "state": {
                         
                     }
+                },
+                "ViewCustomer":{
+                    "menuItems":[[{"name":"Customer Details", "viewID":"CustomerViewCustomer"}],
+                    [{"name":"Make Payment", "viewID":"CustomerMakePayment"}],
+                    [{"name":"Edite Customer Details", "viewID":"CustomerEditCustomer"}]],
+                    "customer":{
+                        "downloaded":false,
+                        "downloading":false,
+                        "downloadError":null,
+                        "uploaded":false,
+                        "uplading":false,
+                        "uploadError":null,
+                        "data":null
+                   }
                 }
             },
             "depnedantLists": [
                 "customers",
-                "employees"
+                "employees",
+                "roles"
             ],
             "icon": {
                 "src": "./resources/apps/Customer/icon.png"
@@ -94,52 +115,57 @@
             "menuItems": [
                 [
                     {
-                        "name": "All",
-                        "viewID": "CustomerAll"
+                        "name": "View All Employees",
+                        "viewID": "EmployeeAll"
                     }
                 ],
                 [
                     {
-                        "name": "Headlink2",
-                        "viewID": "url2"
-                    },
+                        "name": "New Employee",
+                        "viewID": "EmployeeNewEmployee"
+                    }
+                ],
+                [
                     {
-                        "name": "Sublink1",
-                        "viewID": "url3"
+                        "name": "Roles",
+                        "viewID": "EmployeeRoles"
                     }
                 ]
             ],
             "tabs": {
-                "tab123": {
-                    "listAll": [
-                        {
-                            "name": "name1",
-                            "field1": "field1",
-                            "firld2": "field2"
-                        },
-                        {
-                            "name": "name1",
-                            "field1": "field1",
-                            "firld2": "field2"
+                "ViewEmployee":{
+                    "menuItems":[[{"name":"Employee Details", "viewID":"EmployeeViewEmployee"}],
+                    [{"name":"Edite Employee Details", "viewID":"EmployeeEditEmployee"}],
+                    [{"name":"Allowances", "viewID":"EmployeeAllowancesAll"}],
+                    [{"name":"Add Allowance", "viewID":"EmployeeNewAllowance"}]],
+                    "employee":{
+                        "downloaded":false,
+                        "downloading":false,
+                        "downloadError":null,
+                        "data":null
+                   }
+                },
+                "Roles":{
+                    "menuItems":[[{"name":"View All Roles", "viewID":"EmployeeRolesAll"}],
+                    [{"name":"New Role", "viewID":"EmployeeRolesNewRole"}]],
+                    "tabs":{
+                        "ViewRole":{
+                            "menuItems":[[{"name":"Role Details", "viewID":"EmployeeRolesViewRole"}],
+                            [{"name":"Edite Role", "viewID":"EmployeeRolesEditRole"}]],
+                            "role":{
+                                "downloaded":false,
+                                "downloading":false,
+                                "downloadError":null,
+                                "data":null
+                           }
                         }
-                    ],
-                    "listShow": [
-                        
-                    ],
-                    "search": {
-                        "fields": [
-                            "name",
-                            "field1"
-                        ],
-                        "for": "na"
-                    },
-                    "state": {
-                        
                     }
+                    
                 }
             },
             "depnedantLists": [
-                "employees"
+                "employees",
+                "roles"
             ],
             "icon": {
                 "src": "./resources/apps/Employee/icon.png"
@@ -196,7 +222,8 @@
             },
             "depnedantLists": [
                 "employees",
-                "projects"
+                "projects",
+                "roles"
             ],
             "icon": {
                 "src": "./resources/apps/Project/icon.png"
@@ -252,7 +279,8 @@
                 }
             },
             "depnedantLists": [
-                "transactions"
+                "transactions",
+                "roles"
             ],
             "icon": {
                 "src": "./resources/apps/Reverse/icon.png"
@@ -263,52 +291,40 @@
             "menuItems": [
                 [
                     {
-                        "name": "All",
-                        "viewID": "CustomerAll"
+                        "name": "List All Vendors",
+                        "viewID": "VendorAll"
                     }
                 ],
                 [
                     {
-                        "name": "Headlink2",
-                        "viewID": "url2"
-                    },
-                    {
-                        "name": "Sublink1",
-                        "viewID": "url3"
+                        "name": "Add New Vendor",
+                        "viewID": "VendorNewVendor"
                     }
                 ]
             ],
             "tabs": {
-                "tab123": {
-                    "listAll": [
-                        {
-                            "name": "name1",
-                            "field1": "field1",
-                            "firld2": "field2"
-                        },
-                        {
-                            "name": "name1",
-                            "field1": "field1",
-                            "firld2": "field2"
-                        }
-                    ],
-                    "listShow": [
-                        
-                    ],
-                    "search": {
-                        "fields": [
-                            "name",
-                            "field1"
-                        ],
-                        "for": "na"
-                    },
+                "ConfirmNewVendor": {
                     "state": {
                         
                     }
+                },
+                "ViewVendor":{
+                    "menuItems":[[{"name":"Vendor Details", "viewID":"VendorViewVendor"}],
+                    [{"name":"Edite Customer Details", "viewID":"VendorEditVendor"}]],
+                    "vendor":{
+                        "downloaded":false,
+                        "downloading":false,
+                        "downloadError":null,
+                        "uploaded":false,
+                        "uplading":false,
+                        "uploadError":null,
+                        "data":null
+                   }
                 }
             },
             "depnedantLists": [
-                "vendors"
+                "vendors",
+                "roles"
             ],
             "icon": {
                 "src": "./resources/apps/Vendor/icon.png"
@@ -320,6 +336,9 @@
     },
     "state": {
         "list": {
+            "downloading":false,
+            "downloaded":false,
+            "error":null,
             "id": "",
             "all": [
                 
@@ -340,7 +359,6 @@
             "uploadError": null
         },
         "form": {
-            "id": "",
             "data": {
                 
             }
@@ -366,6 +384,12 @@
             "data": []
         },
         "projects": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": []
+        },
+        "roles": {
             "downloaded": false,
             "downloading": false,
             "error": null,

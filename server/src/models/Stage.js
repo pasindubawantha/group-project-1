@@ -8,7 +8,13 @@ var Stage = {
  		return db.query("select * from Stage where id=? and projectId=?", [id.id, id.projectId], callback);
  	},
  	addStage: function(Stage, callback){
- 		return db.query("insert into Stage(projectId,name,priority,description,startDate,endDate,ammount) values(?,?,?,?,?,?,?)", [Stage.projectId, Stage.name, Stage.priority, Stage.description, Stage.startDate, Stage.endDate, Stage.ammount], callback);
+ 		return db.query("insert into Stage(projectId,name,priority,description,startDate,endDate,ammount) values(?,?,?,?,?,?,?)", [Stage.projectId, Stage.name, Stage.priority, Stage.description, Stage.startDate, Stage.endDate, Stage.ammount], function(err, count){
+ 			if(err){
+ 				callback(err, null)
+ 			}else{
+ 				db.query("SHOW TABLE STATUS LIKE 'stage'", callback)
+ 			}
+ 		})
  	},
  	deleteStage:function(id, callback){
   		return db.query("delete from Stage where id=? and projectId=?", [id.id, id.projectId], callback);

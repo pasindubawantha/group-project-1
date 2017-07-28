@@ -2,20 +2,19 @@ import React from "react"
 import { connect } from "react-redux"
 import ButtonLink from "../../Components/ButtonLink"
 import { NotificationManager } from 'react-notifications';
-import PickRole from './Roles/PickRole'
+import NewProject from './Roles/'
+import axios from "axios"
 
 @connect((store) => {
 	return {//props
 		url: store.url
 	}
 },)
-export default class NewEmployee extends React.Component {
-	constructor(){
-		super()
+export default class NewCustomer extends React.Component {
+	componentWillMount(){
 		this.state = {
-			emplyeeName:"",
-			employeeAddress:"",
-			emplyeeSalary:0,
+			customerName: null,
+			customerAddress: null
 		}
 	}
 	confirm(e){
@@ -45,7 +44,7 @@ export default class NewEmployee extends React.Component {
 				  </div>
 				  <div class="form-group">
 				    <div class="col-sm-offset-2 col-sm-7">
-				    	<ButtonLink url={this.props.url.concat({name:'Pick Role', viewID:'EmployeeNewEmployeePickRole'})} name="Create Project" onClick={this.confirm.bind(this)}/>
+				    	<ButtonLink url={this.props.url.concat({name:'New Project ', viewID:'CustomerNewCustomerNewProject'})} name="Create Project" onClick={this.confirm.bind(this)}/>
 				  	</div>
 				  </div>
 				</form>

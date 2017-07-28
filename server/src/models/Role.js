@@ -8,7 +8,13 @@ var Role = {
  		return db.query("select * from Role where id=?", [id], callback);
  	},
  	addRole: function(Role, callback){
- 		return db.query("insert into Role(name,description) values(?,?)", [Role.name, Role.description], callback);
+ 		return db.query("insert into Role(name,description) values(?,?)", [Role.name, Role.description], function(err, count){
+ 			if(err){
+ 				callback(err, null)
+ 			}else{
+ 				db.query("SHOW TABLE STATUS LIKE 'role'", callback)
+ 			}
+ 		})
  	},
  	deleteRole:function(id, callback){
   		return db.query("delete from Role where id=?", [id], callback);

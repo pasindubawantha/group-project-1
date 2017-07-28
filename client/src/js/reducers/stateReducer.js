@@ -1,5 +1,8 @@
 const defaulSate = {
         "list":{
+        	"downloading":false,
+            "downloaded":false,
+            "error":null,
             "all":[],
             "show":[],
             "selected":[]
@@ -104,6 +107,48 @@ export default function(state=defaulSate, action){
 				form:{...state.form,
 					data:action.payload
 				} 	 
+			}
+			break;
+		}
+		case "DOWNLOAD_STATE_LIST_PENDING" : {
+			state = {...state,
+				list:{...state.list,
+					downloading:true,
+					downloaded:false,
+					error:null,
+					all:[],
+					show:[],
+					selected:[],
+					picked:""
+				}	 
+			}
+			break;
+		}
+		case "DOWNLOAD_STATE_LIST_REJECTED" : {
+			state = {...state,
+				list:{...state.list,
+					downloading:false,
+					downloaded:false,
+					error:action.payload.data,
+					all:[],
+					show:[],
+					selected:[],
+					picked:""
+				}	 
+			}
+			break;
+		}
+		case "DOWNLOAD_STATE_LIST_FULFILLED" : {
+			state = {...state,
+				list:{...state.list,
+					downloading:false,
+					downloaded:true,
+					error:null,
+					all:action.payload.data,
+					show:[],
+					selected:[],
+					picked:""
+				}	 
 			}
 			break;
 		}

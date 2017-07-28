@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import ListItem from "./ListItem"
 import { updateListAll, updateListShow, updateListID, updateListPicked } from "../../../actions/stateActions"
+import { NotificationManager } from 'react-notifications';
 
 @connect((store) => {
 	return {
@@ -10,16 +11,16 @@ import { updateListAll, updateListShow, updateListID, updateListPicked } from ".
 	}
 },)
 export default class PickCustomer extends React.Component {
-	constructor(props){
-		super()
-		this.state = {searched:""}
-	}
-
 	componentWillMount(){
-		this.props.dispatch(updateListAll(this.props.listAll.slice()))
-		this.props.dispatch(updateListShow(this.props.listAll.slice()))
-		this.props.dispatch(updateListID(this.props.listID))
-		this.props.dispatch(updateListPicked(null))
+		if(this.props.listAll == null || this.props.listAll.length == 0){
+			NotificationManager.warning('List is empty')
+		}else{
+			this.state = {searched:""}
+			this.props.dispatch(updateListAll(this.props.listAll.slice()))
+			this.props.dispatch(updateListShow(this.props.listAll.slice()))
+			this.props.dispatch(updateListID(this.props.listID))
+			this.props.dispatch(updateListPicked(null))
+		}
 	}
 
 	onChangeSearch(e){
@@ -63,27 +64,31 @@ export default class PickCustomer extends React.Component {
 	}
 
 	render(){
-		return (
-			<div>
-				<form class="form-inline">
-				  <div class="form-group">
-				    	<input onChange={this.onChangeSearch.bind(this)} type="text" class="form-control" id="exampleInputAmount" placeholder="Search"/>
-				  </div>
-				</form>
+		if(this.props.listAll == null || this.props.listAll.length == 0){
+			return(<p>Nothing to show</p>)
+		}else{
+			return (
+				<div>
+					<form class="form-inline">
+					  <div class="form-group">
+					    	<input onChange={this.onChangeSearch.bind(this)} type="text" class="form-control" id="exampleInputAmount" placeholder="Search"/>
+					  </div>
+					</form>
 
-				<row>
-					<h4>{this.props.headers.show}</h4>
-					<div class="list-group">
-						{this.props.list.show.map(
-							function(item) {
-								var { label, key, id } = this.props.fields
-								if(item != null){ 
-									return(<ListItem key={item[key]} id={id} item={item} heading={item[label[0]]} textFields={label.slice(1, label.length)} url={this.props.nextURL} />)
-								}
-							}, this)
-						}
-					</div>
-				</row>
-			</div>)
+					<row>
+						<h4>{this.props.headers.show}</h4>
+						<div class="list-group">
+							{this.props.list.show.map(
+								function(item) {
+									var { label, key, id } = this.props.fields
+									if(item != null){ 
+										return(<ListItem key={item[key]} id={id} item={item} heading={item[label[0]]} textFields={label.slice(1, label.length)} url={this.props.nextURL} />)
+									}
+								}, this)
+							}
+						</div>
+					</row>
+				</div>)
+		}
 	}
 }

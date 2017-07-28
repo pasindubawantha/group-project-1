@@ -1,3 +1,4 @@
+import axios from "axios"
 export function updateListAll(array) {
 	return {
 		type: "UPDATE_STATE_LIST_ALL",
@@ -70,5 +71,12 @@ export function updateFormData(data){
 	return{
 		type: "UPDATE_STATE_FORM_DATA",
 		payload: data
+	}
+}
+
+export function downloadList(url) {
+	return{
+		type:"DOWNLOAD_STATE_LIST",
+		payload:axios.get(url)
 	}
 }

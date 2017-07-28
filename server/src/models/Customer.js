@@ -8,7 +8,13 @@ var Customer = {
  		return db.query("select * from Customer where id=?", [id], callback);
  	},
  	addCustomer: function(Customer, callback){
- 		return db.query("insert into Customer(name,address) values(?,?)", [CuCustomer.name, Customer.address], callback);
+ 		return db.query("insert into Customer(name,address) values(?,?)", [Customer.name, Customer.address], function(err, count){
+ 			if(err){
+ 				callback(err, null)
+ 			}else{
+ 				db.query("SHOW TABLE STATUS LIKE 'customer'", callback)
+ 			}
+ 		})
  	},
  	deleteCustomer:function(id, callback){
   		return db.query("delete from Customer where id=?", [id], callback);

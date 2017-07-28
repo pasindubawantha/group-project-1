@@ -4,13 +4,15 @@ const defaulSate = {
 
 export default function(state=defaulSate, action){
 	switch(action.type){
-		case "CUSTOMER_PICKCUSTOMER_SHOWLIST_UPDATE" : {
+		case "CUSTOMER_CUSTOMERVIEW_GET_PENDING" : {
 			state = {...state, 
 				Customer: {...state.Customer,
 					tabs:{...state.Customer.tabs,
-						PickCustomer:{...state.Customer.tabs.PickCustomer,
-							state:{...state.Customer.tabs.PickCustomer.state,
-								"showList":action
+						ViewCustomer:{...state.Customer.tabs.ViewCustomer,
+							customer:{...state.Customer.tabs.ViewCustomer.customer,
+								"downloaded":false,
+                        		"downloading":true,
+                        		"downloadError":null,
 								}
 							}
 						}
@@ -18,34 +20,87 @@ export default function(state=defaulSate, action){
 				}
 			break;
 		}
-		case "CREATING_USER_SESSION" : {
+		case "CUSTOMER_CUSTOMERVIEW_GET_REJECTED" : {
 			state = {...state, 
-				SessionID: {fetched: false, 
-					fetching: true,
-					value: null,
-					error: null} 
+				Customer: {...state.Customer,
+					tabs:{...state.Customer.tabs,
+						ViewCustomer:{...state.Customer.tabs.ViewCustomer,
+							customer:{...state.Customer.tabs.ViewCustomer.customer,
+								"downloaded":false,
+                        		"downloading":false,
+                        		"downloadError":action.payload,
+                        		"data":null
+								}
+							}
+						}
+					} 
 				}
 			break;
 		}
-		case "CREATING_USER_SESSION_REJECTED" : {
-			state = {...state,
-				SessionID: {fetched: false, 
-					fetching: false,
-					value: null,
-					error: action.payload} 
+		case "CUSTOMER_CUSTOMERVIEW_GET_FULFILLED" : {
+			state = {...state, 
+				Customer: {...state.Customer,
+					tabs:{...state.Customer.tabs,
+						ViewCustomer:{...state.Customer.tabs.ViewCustomer,
+							customer:{...state.Customer.tabs.ViewCustomer.customer,
+								"downloaded":true,
+                        		"downloading":false,
+                        		"downloadError":null,
+                        		"data":action.payload.data[0]
+								}
+							}
+						}
+					} 
 				}
 			break;
 		}
-		case "FETCHINGING_LIST" : {
+		case "VENDOR_VENDORVIEW_GET_PENDING" : {
 			state = {...state, 
-					vendors : [{name: "v1",ID: "1"},{name: "v2",ID:"2"}]
+				Vendor: {...state.Vendor,
+					tabs:{...state.Vendor.tabs,
+						ViewVendor:{...state.Vendor.tabs.ViewVendor,
+							vendor:{...state.Vendor.tabs.ViewVendor.vendor,
+								"downloaded":false,
+                        		"downloading":true,
+                        		"downloadError":null,
+								}
+							}
+						}
+					} 
 				}
 			break;
 		}
-		case "CREATING_USER_SESSION_FULFILLED_Example" : {
+		case "VENDOR_VENDORVIEW_GET_REJECTED" : {
 			state = {...state, 
-				SessionID: {...state.SessionID, 
-					error : action.payload} 
+				Vendor: {...state.Vendor,
+					tabs:{...state.Vendor.tabs,
+						ViewVendor:{...state.Vendor.tabs.ViewVendor,
+							vendor:{...state.Vendor.tabs.ViewVendor.vendor,
+								"downloaded":false,
+                        		"downloading":false,
+                        		"downloadError":action.payload,
+                        		"data":null
+								}
+							}
+						}
+					} 
+				}
+			break;
+		}
+		case "VENDOR_VENDORVIEW_GET_FULFILLED" : {
+			state = {...state, 
+				Vendor: {...state.Vendor,
+					tabs:{...state.Vendor.tabs,
+						ViewVendor:{...state.Vendor.tabs.ViewVendor,
+							vendor:{...state.Vendor.tabs.ViewVendor.vendor,
+								"downloaded":true,
+                        		"downloading":false,
+                        		"downloadError":null,
+                        		"data":action.payload.data[0]
+								}
+							}
+						}
+					} 
 				}
 			break;
 		}

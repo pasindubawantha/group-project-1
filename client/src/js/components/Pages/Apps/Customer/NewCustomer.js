@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import ButtonLink from "../../Components/ButtonLink"
 import { NotificationManager } from 'react-notifications';
 import NewProject from './NewProject/NewProject'
+import axios from "axios"
 
 @connect((store) => {
 	return {//props
@@ -10,11 +11,10 @@ import NewProject from './NewProject/NewProject'
 	}
 },)
 export default class NewCustomer extends React.Component {
-	constructor(){
-		super()
+	componentWillMount(){
 		this.state = {
-			customerName:"",
-			customerAddress:""
+			customerName: null,
+			customerAddress: null
 		}
 	}
 	confirm(e){

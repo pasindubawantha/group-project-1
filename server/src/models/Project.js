@@ -8,7 +8,13 @@ var Project = {
  		return db.query("select * from Project where id=?", [id], callback);
  	},
  	addProject: function(Project, callback){
- 		return db.query("insert into Project(customerId,name,address,startDate,endDate) values(?,?,?,?,?)", [Project.customerId, Project.name, Project.address, Project.startDate, Project.endDate], callback);
+ 		return db.query("insert into Project(customerId,name,address,startDate,endDate) values(?,?,?,?,?)", [Project.customerId, Project.name, Project.address, Project.startDate, Project.endDate], function(err, count){
+ 			if(err){
+ 				callback(err, null)
+ 			}else{
+ 				db.query("SHOW TABLE STATUS LIKE 'project'", callback)
+ 			}
+ 		})
  	},
  	deleteProject:function(id, callback){
   		return db.query("delete from Project where id=?", [id], callback);
