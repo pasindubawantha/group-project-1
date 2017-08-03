@@ -8,12 +8,12 @@ import {goTo} from"../../../actions/urlActions.js"
 		dummy: store.dummy
 	}
 },)
-export default class Link extends React.Component {
+export default class ListItem extends React.Component {
 	onClickDo(){
 		if(this.props.onClick != null){
 			this.props.onClick()
 		}
-		this.props.dispatch(updateListPicked(this.props.item[this.props.id]))
+		this.props.dispatch(updateListPicked(this.props.listID,this.props.item[this.props.id]))
 		this.props.dispatch(goTo(this.props.url))
 	}
 

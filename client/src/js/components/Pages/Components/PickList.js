@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { updateListAll, updateListShow, updateListSelected, updateListID } from "../../../actions/stateActions"
 import { find, deleteElement, findNull} from "./arrayOpps"
 import ButtonLink from "./ButtonLink"
+import { NotificationManager } from 'react-notifications';
 
 @connect((store) => {
 	return {
@@ -10,22 +11,22 @@ import ButtonLink from "./ButtonLink"
 		list: store.state.list
 	}
 },)
-export default class PickCustomer extends React.Component {
+export default class PickList extends React.Component {
 	componentWillMount(){
 		if(this.props.listAll == null || this.props.listAll.length == 0){
-			NotificationManager.info('List is empty')
+			NotificationManager.warning('List is empty')
 		}else{
 			this.state = {searched:""}
 			this.props.dispatch(updateListAll(this.props.listAll.slice()))
 			this.props.dispatch(updateListShow(this.props.listAll.slice()))
-			this.props.dispatch(updateListSelected([null]))
-			this.props.dispatch(updateListID(this.props.listID))
+			this.props.dispatch(updateListSelected(this.props.listID, [null]))
 		}
 	}
 
 	onChangeCheckBox(e){
 		if(e.target.checked){
-			var {selected, all, show} = this.props.list
+			var { all, show} = this.props.list
+			var selected = this.props.list.selected[this.props.listID]
 			var index1 = find(all, this.props.fields.id, e.target.id)
 			var index2 = find(show, this.props.fields.id, e.target.id)
 			var nullIndex = findNull(selected)
@@ -38,10 +39,11 @@ export default class PickCustomer extends React.Component {
 			delete show[index2]
 			this.props.dispatch(updateListAll(all))
 			this.props.dispatch(updateListShow(show))
-			this.props.dispatch(updateListSelected(selected))
+			this.props.dispatch(updateListSelected(this.props.listID ,selected))
 			
 		}else{
-			var { selected, all } = this.props.list
+			var  selected  = this.props.list.selected[this.props.listID]
+			var { all } = this.props.list
 			var index = find(selected, this.props.fields.id, e.target.id)
 			var nullIndex = findNull(all)
 			if(nullIndex == -1){
@@ -51,7 +53,7 @@ export default class PickCustomer extends React.Component {
 			}
 			delete selected[index]
 			this.props.dispatch(updateListAll(all))
-			this.props.dispatch(updateListSelected(selected))
+			this.props.dispatch(updateListSelected(this.props.listID, selected))
 			var e = {target: {value: this.state.searched }}
 			this.onChangeSearch(e)
 		}
@@ -98,7 +100,7 @@ export default class PickCustomer extends React.Component {
 	}
 
 	render(){
-		if(this.props.listAll == null || this.props.listAll.length == 0){
+		if(this.props.listAll == null || this.props.listAll.length == 0 || this.props.list.selected[this.props.listID] == null){
 			return(<p>Nothing to show</p>)
 		}else{
 			return (
@@ -113,7 +115,7 @@ export default class PickCustomer extends React.Component {
 				<row>
 				<h4>{this.props.headers.selected}</h4>
 					<ul class="list-group">
-					{this.props.list.selected.map(function(item){
+					{this.props.list.selected[this.props.listID].map(function(item){
 						if(item != null){ return(
 						<li key={item[this.props.fields.key]}> 
 							<label>

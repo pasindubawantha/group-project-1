@@ -6,16 +6,13 @@ import { getVendorDetails } from '../../../../../actions/Apps/vendorActions'
 @connect((store) => {
 	return {//props
 		url: store.url,
-		vendorId: store.state.list.picked,
-		listId: store.state.list.id,
+		vendorId: store.state.list.picked['VendorAll'],
 		vendor: store.apps.Vendor.tabs.ViewVendor.vendor
 	}
 },)
 export default class ViewVendor extends React.Component {
 	componentWillMount(){
-		if(this.props.listId == "VendorViewVendor"){
-			this.props.dispatch(getVendorDetails(this.props.vendorId))
-		}
+		this.props.dispatch(getVendorDetails(this.props.vendorId))
 		this.state = {warrned: false}
 	}
 	warn(){

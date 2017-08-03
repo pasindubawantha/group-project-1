@@ -6,7 +6,7 @@ import axios from "axios"
 @connect((store) => {
 	return {//props
 		url: store.url,
-		projectId: store.state.list.picked
+		projectId: store.state.list.picked['CustomerMakePayment']
 	}
 },)
 export default class ConfirmPayment extends React.Component {

@@ -20,6 +20,6 @@ export default class PickVendor extends React.Component {
 			show:"Pick Vendor"
 		}
 		var nextURL = this.props.url.slice(0, this.props.url.length - 1).concat({ name: "Vendor View", viewID: "VendorViewVendor"})
-		return (<List nextURL={nextURL} listID='VendorViewVendor' listAll={this.props.vendorsList} fields={fields} headers={headers} />)
+		return (<List nextURL={nextURL} listID={this.props.url[this.props.url.length-1].viewID} listAll={this.props.vendorsList} fields={fields} headers={headers} />)
 	}
 }

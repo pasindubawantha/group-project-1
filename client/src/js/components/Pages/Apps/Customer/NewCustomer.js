@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import ButtonLink from "../../Components/ButtonLink"
 import { NotificationManager } from 'react-notifications';
 import NewProject from './NewProject/NewProject'
-import axios from "axios"
 
 @connect((store) => {
 	return {//props

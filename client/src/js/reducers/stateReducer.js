@@ -30,9 +30,11 @@ export default function(state=defaulSate, action){
 		case "UPDATE_STATE_LIST_SELECTED" : {
 			state = {...state,
 				list:{...state.list,
-					selected: action.payload
+					selected: {...state.list.selected
+					}
 				} 	 
 			}
+			state.list.selected[action.payload.listID] = action.payload.array 
 			break;
 		}
 		case "UPDATE_STATE_LIST_ID" : {
@@ -46,9 +48,11 @@ export default function(state=defaulSate, action){
 		case "UPDATE_STATE_LIST_PICKED" : {
 			state = {...state,
 				list:{...state.list,
-					picked: action.payload
+					picked: {...state.list.picked
+					}
 				} 	 
 			}
+			state.list.picked[action.payload.listID] = action.payload.pickedID
 			break;
 		}
 		case "UPDATE_STATE_UPLOAD_UPLOADING" : {
@@ -117,9 +121,7 @@ export default function(state=defaulSate, action){
 					downloaded:false,
 					error:null,
 					all:[],
-					show:[],
-					selected:[],
-					picked:""
+					show:[]
 				}	 
 			}
 			break;
@@ -131,9 +133,7 @@ export default function(state=defaulSate, action){
 					downloaded:false,
 					error:action.payload.data,
 					all:[],
-					show:[],
-					selected:[],
-					picked:""
+					show:[]
 				}	 
 			}
 			break;
@@ -145,9 +145,7 @@ export default function(state=defaulSate, action){
 					downloaded:true,
 					error:null,
 					all:action.payload.data,
-					show:[],
-					selected:[],
-					picked:""
+					show:[]
 				}	 
 			}
 			break;

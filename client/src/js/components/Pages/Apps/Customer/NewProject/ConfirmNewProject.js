@@ -2,16 +2,18 @@ import React from "react"
 import { connect } from "react-redux"
 import { NotificationManager } from 'react-notifications'
 import { axiosInjector } from '../../../../customFunctions'
+import { fetchList } from "../../../../../actions/listsActions"
 @connect((store) => {
 	return {//props
 		url: store.url,
-		team: store.state.list.selected,
+		team: store.state.list.selected['CustomerNewProjectPickTeam'],
 		data: store.state.form.data
 	}
 },)
 export default class ConfirmNewProject extends React.Component {
 	componentWillMount(){
-		var { data, team } = this.props
+		var data = Object.assign({}, this.props.data)
+		var team = this.props.team.slice()
 		this.customerId = data.customerId
 		this.customer = {
 			name: data.customerName,
@@ -43,13 +45,14 @@ export default class ConfirmNewProject extends React.Component {
 				axiosInjector('projects', 'post', response.this.project, response.this)
 				.then(function(response){
 					const projectId = response.data[0].Auto_increment - 1
-    				var inject = {teamlength:response.this.team.length, uploaded:0,failed:false }
+    				var inject = {teamlength:response.this.team.length, uploaded:0,failed:false, this:response.this }
     				for(var i in response.this.team){
     					axiosInjector('teamMembers', 'post', {projectId:projectId, employeeId:response.this.team[i],allowanceAppMember:false,paymentAppMember:false}, inject)
     					.then(function(response){
     						response.this.uploaded++
     						if(response.this.uploaded == response.this.teamlength){
     							NotificationManager.info("Sucessfully created new customer and project")
+    							response.this.this.props.dispatch(fetchList('customers'))
     						}
     					}, function(error){
     						if(!error.this.failed){

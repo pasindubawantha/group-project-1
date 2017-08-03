@@ -13,10 +13,10 @@ export function updateListShow(array) {
 	}
 }
 
-export function updateListSelected(array) {
+export function updateListSelected(listID, array) {
 	return {
 		type: "UPDATE_STATE_LIST_SELECTED",
-		payload: array
+		payload: {listID:listID, array:array}
 	}
 }
 export function updateListID(id) {
@@ -25,10 +25,10 @@ export function updateListID(id) {
 		payload: id
 	}
 }
-export function updateListPicked(pickedID) {
+export function updateListPicked(listID ,pickedID) {
 	return {
 		type: "UPDATE_STATE_LIST_PICKED",
-		payload: pickedID
+		payload: {listID:listID, pickedID:pickedID}
 	}
 }
 export function updateUploadUploading(e) {

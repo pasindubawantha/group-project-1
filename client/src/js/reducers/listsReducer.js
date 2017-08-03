@@ -169,6 +169,39 @@ export default function(state=defaulSate, action){
 				}
 			break;
 		}
+		case "FETCHING_LIST_roles_PENDING" : {
+			state = {...state, 
+					roles : {
+						downloaded:false,
+						downloading:true,
+						error:null,
+						data:null
+					}
+				}
+			break;
+		}
+		case "FETCHING_LIST_roles_REJECTED" : {
+			state = {...state, 
+					roles : {
+						downloaded:false,
+						downloading:false,
+						error: action.payload,
+						data:null
+					}
+				}
+			break;
+		}
+		case "FETCHING_LIST_roles_FULFILLED" : {
+			state = {...state, 
+					roles : {
+						downloaded:true,
+						downloading:false,
+						error: null,
+						data:action.payload.data
+					}
+				}
+			break;
+		}
 	}
 	return state;
 };

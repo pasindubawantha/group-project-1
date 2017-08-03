@@ -104,6 +104,56 @@ export default function(state=defaulSate, action){
 				}
 			break;
 		}
+		case "EMPLOYEE_EMPLOYEEVIEW_GET_PENDING" : {
+			state = {...state, 
+				Employee: {...state.Employee,
+					tabs:{...state.Employee.tabs,
+						ViewEmployee:{...state.Employee.tabs.ViewEmployee,
+							employee:{...state.Employee.tabs.ViewEmployee.employee,
+								"downloaded":false,
+                        		"downloading":true,
+                        		"downloadError":null,
+								}
+							}
+						}
+					} 
+				}
+			break;
+		}
+		case "EMPLOYEE_EMPLOYEEVIEW_GET_REJECTED" : {
+			state = {...state, 
+				Employee: {...state.Employee,
+					tabs:{...state.Employee.tabs,
+						ViewEmployee:{...state.Employee.tabs.ViewEmployee,
+							employee:{...state.Employee.tabs.ViewEmployee.employee,
+								"downloaded":false,
+                        		"downloading":false,
+                        		"downloadError":action.payload,
+                        		"data":null
+								}
+							}
+						}
+					} 
+				}
+			break;
+		}
+		case "EMPLOYEE_EMPLOYEEVIEW_GET_FULFILLED" : {
+			state = {...state, 
+				Employee: {...state.Employee,
+					tabs:{...state.Employee.tabs,
+						ViewEmployee:{...state.Employee.tabs.ViewEmployee,
+							employee:{...state.Employee.tabs.ViewEmployee.employee,
+								"downloaded":true,
+                        		"downloading":false,
+                        		"downloadError":null,
+                        		"data":action.payload.data[0]
+								}
+							}
+						}
+					} 
+				}
+			break;
+		}
 	}
 	return state;
 };

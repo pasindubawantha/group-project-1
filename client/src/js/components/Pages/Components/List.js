@@ -10,7 +10,7 @@ import { NotificationManager } from 'react-notifications';
 		list: store.state.list
 	}
 },)
-export default class PickCustomer extends React.Component {
+export default class List extends React.Component {
 	componentWillMount(){
 		if(this.props.listAll == null || this.props.listAll.length == 0){
 			NotificationManager.warning('List is empty')
@@ -18,8 +18,7 @@ export default class PickCustomer extends React.Component {
 			this.state = {searched:""}
 			this.props.dispatch(updateListAll(this.props.listAll.slice()))
 			this.props.dispatch(updateListShow(this.props.listAll.slice()))
-			this.props.dispatch(updateListID(this.props.listID))
-			this.props.dispatch(updateListPicked(null))
+			this.props.dispatch(updateListPicked(this.props.listID, null))
 		}
 	}
 
@@ -82,7 +81,7 @@ export default class PickCustomer extends React.Component {
 								function(item) {
 									var { label, key, id } = this.props.fields
 									if(item != null){ 
-										return(<ListItem key={item[key]} id={id} item={item} heading={item[label[0]]} textFields={label.slice(1, label.length)} url={this.props.nextURL} />)
+										return(<ListItem listID={this.props.listID} key={item[key]} id={id} item={item} heading={item[label[0]]} textFields={label.slice(1, label.length)} url={this.props.nextURL} />)
 									}
 								}, this)
 							}

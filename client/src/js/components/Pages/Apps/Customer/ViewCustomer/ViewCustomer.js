@@ -6,16 +6,13 @@ import { getCustomerDetails } from '../../../../../actions/Apps/customerActions'
 @connect((store) => {
 	return {//props
 		url: store.url,
-		customerId: store.state.list.picked,
-		listId: store.state.list.id,
+		customerId: store.state.list.picked['CustomerAll'],
 		customer: store.apps.Customer.tabs.ViewCustomer.customer
 	}
 },)
 export default class ViewCustomer extends React.Component {
 	componentWillMount(){
-		if(this.props.listId == "CustomerViewCustomer"){
-			this.props.dispatch(getCustomerDetails(this.props.customerId))
-		}
+		this.props.dispatch(getCustomerDetails(this.props.customerId))
 		this.state = {warrned: false}
 	}
 	warn(){

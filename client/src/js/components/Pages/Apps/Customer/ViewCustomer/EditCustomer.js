@@ -1,9 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
 import ButtonLink from "../../../Components/ButtonLink"
-import { NotificationManager } from 'react-notifications';
+import { NotificationManager } from 'react-notifications'
 import NewProject from '../NewProject/NewProject'
-import axios from "axios"
+import { axiosInjector } from '../../../../customFunctions'
+import { fetchList } from "../../../../../actions/listsActions"
 
 @connect((store) => {
 	return {//props
@@ -29,14 +30,16 @@ export default class EditCustomer extends React.Component {
 	}
 	save(e){
 		e.target.disabled = true
-		axios.post('/customers/'+ this.props.customer.data.id ,{
-				name: this.state.customerName,
-				address: this.state.customerAddress
-			}
-		).then(function (status){
-			NotificationManager.info('Sucessfully updated customer details')
+		var customer = {
+			id: this.state.customerId,
+			name: this.state.customerName,
+			address : this.state.customerAddress 
 		}
-		).catch(function (error){
+		axiosInjector('/customers/'+ customer.id + '/', 'post', customer, this)
+		.then(function(response){
+			response.this.props.dispatch(fetchList('customers'))
+			NotificationManager.info('Sucessfully updated customer details')
+		}, function(error){
 			NotificationManager.error('Unable to update Customer')
 		})
 	}

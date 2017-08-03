@@ -20,6 +20,6 @@ export default class PickEmployee extends React.Component {
 			show:"Pick Employee"
 		}
 		var nextURL = this.props.url.slice(0, this.props.url.length - 1).concat({ name: "Employee View", viewID: "EmployeeViewEmployee"})
-		return (<List nextURL={nextURL} listID='EmployeeViewEmployee' listAll={this.props.employeesList} fields={fields} headers={headers} />)
+		return (<List nextURL={nextURL} listID={this.props.url[this.props.url.length-1].viewID} listAll={this.props.employeesList} fields={fields} headers={headers} />)
 	}
 }

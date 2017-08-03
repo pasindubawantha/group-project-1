@@ -2,7 +2,8 @@ import React from "react"
 import { connect } from "react-redux"
 import ButtonLink from "../../Components/ButtonLink"
 import { NotificationManager } from 'react-notifications';
-import axios from "axios"
+import { fetchList } from "../../../../actions/listsActions"
+import { axiosInjector } from '../../../customFunctions'
 
 @connect((store) => {
 	return {//props
@@ -20,10 +21,11 @@ export default class NewVendor extends React.Component {
 	}
 	save(e){
 		e.target.disabled = true
-		axios.post('/vendors/', this.state).then(function (status){
+		axiosInjector('/vendors/', 'post', this.state,this)
+		.then(function(response){
+			response.this.props.dispatch(fetchList('vendors'))
 			NotificationManager.info('Sucessfully saved vendor details')
-		}
-		).catch(function (error){
+		}, function(error){
 			NotificationManager.error('Unable to save vendor details')
 		})
 	}

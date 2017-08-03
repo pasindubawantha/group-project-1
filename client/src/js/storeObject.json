@@ -128,7 +128,7 @@
                 [
                     {
                         "name": "Roles",
-                        "viewID": "EmployeeRoles"
+                        "viewID": "EmployeeRolesAll"
                     }
                 ]
             ],
@@ -177,47 +177,26 @@
                 [
                     {
                         "name": "All",
-                        "viewID": "CustomerAll"
-                    }
-                ],
-                [
-                    {
-                        "name": "Headlink2",
-                        "viewID": "url2"
-                    },
-                    {
-                        "name": "Sublink1",
-                        "viewID": "url3"
+                        "viewID": "ProjectAll"
                     }
                 ]
             ],
             "tabs": {
-                "tab123": {
-                    "listAll": [
-                        {
-                            "name": "name1",
-                            "field1": "field1",
-                            "firld2": "field2"
-                        },
-                        {
-                            "name": "name1",
-                            "field1": "field1",
-                            "firld2": "field2"
-                        }
+                "ViewProject": {
+                    "menuItems":[[{"name":"Project Details", "viewID":"ProjectViewProject"}],
+                    [{"name":"Edite Project Details", "viewID":"ProjectEditProject"}],
+                    [{"name":"Team", "viewID":"ProjectAllTeam"}],
+                    [{"name":"Payments", "viewID":"ProjectMakePayment"}],
+                    [{"name":"Material Request", "viewID":"ProjectMaterialRequest"}],
+                    [{"name":"Invendory", "viewID":"ProjectAllInventory"}],
+                    [{"name":"Budget", "viewID":"ProjectBudget"}]
                     ],
-                    "listShow": [
-                        
-                    ],
-                    "search": {
-                        "fields": [
-                            "name",
-                            "field1"
-                        ],
-                        "for": "na"
-                    },
-                    "state": {
-                        
-                    }
+                    "project":{
+                        "downloaded":false,
+                        "downloading":false,
+                        "downloadError":null,
+                        "data":null
+                   }
                 }
             },
             "depnedantLists": [
@@ -310,7 +289,7 @@
                 },
                 "ViewVendor":{
                     "menuItems":[[{"name":"Vendor Details", "viewID":"VendorViewVendor"}],
-                    [{"name":"Edite Customer Details", "viewID":"VendorEditVendor"}]],
+                    [{"name":"Edite Vendor Details", "viewID":"VendorEditVendor"}]],
                     "vendor":{
                         "downloaded":false,
                         "downloading":false,
@@ -346,10 +325,8 @@
             "show": [
                 
             ],
-            "selected": [
-                
-            ],
-            "picked": ""
+            "selected": {},
+            "picked": {}
         },
         "upload": {
             "id": "",

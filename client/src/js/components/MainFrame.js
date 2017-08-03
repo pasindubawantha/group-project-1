@@ -15,6 +15,7 @@ import { NotificationContainer } from 'react-notifications';
 },)
 export default class MainFrame extends React.Component {
 	render() {
+		console.log(3)
 		if(this.props.user.sessionID == null){
 			return (<Login />)
 		}else{
@@ -24,6 +25,7 @@ export default class MainFrame extends React.Component {
 			      	<NevigationBar />
 			      	<BreadCrumb />
 			        <ContentArea />
+			        <div> asdguahdfgiuhadifhgaidfjigadjoi</div>
 			      </div>
 				)
 		}

@@ -3,8 +3,12 @@ import { connect } from "react-redux"
 import SideMenu from "../../Components/SideMenu.js"
 import NewEmployee from "./NewEmployee"
 import PickEmployee from "./PickEmployee"
-import ViewEmployee from "./ViewVendor/ViewEmployee"
-import EditEmployee from "./ViewVendor/EditEmployee"
+import ViewEmployee from "./ViewEmployee/ViewEmployee"
+import EditEmployee from "./ViewEmployee/EditEmployee"
+import PickRole from "./Roles/PickRole"
+import NewRole from "./Roles/NewRole"
+import ViewRole from "./Roles/ViewRole"
+import EditRole from "./Roles/EditRole"
 
 @connect((store) => {
 	return {//props
@@ -35,6 +39,22 @@ export default class EmployeeApp extends React.Component {
 				return(<EditEmployee />)
 				break
 			}
+			case "EmployeeRolesAll":{
+				return(<PickRole />)
+				break
+			}
+			case "EmployeeRolesNewRole":{
+				return(<NewRole />)
+				break
+			}
+			case"EmployeeRolesViewRole":{
+				return(<ViewRole />)
+				break
+			}
+			case"EmployeeRolesEditRole":{
+				return(<EditRole />)
+				break
+			}
 			default : {
 				return <h2> Welcome to Employee App </h2>
 			}
@@ -61,6 +81,22 @@ export default class EmployeeApp extends React.Component {
 			}
 			case "EmployeeEditEmployee":{
 				return(<SideMenu menuItems={this.props.app.tabs.ViewEmployee.menuItems} name={this.props.app.tabs.ViewEmployee.name} concatURL={url} />)
+				break
+			}
+			case "EmployeeRolesAll":{
+				return(<SideMenu menuItems={this.props.app.tabs.Roles.menuItems} name={this.props.app.tabs.Roles.name} concatURL={url} />)
+				break
+			}
+			case "EmployeeRolesNewRole":{
+				return(<SideMenu menuItems={this.props.app.tabs.Roles.menuItems} name={this.props.app.tabs.Roles.name} concatURL={url} />)
+				break
+			}
+			case"EmployeeRolesViewRole":{
+				return(<SideMenu menuItems={this.props.app.tabs.Roles.tabs.ViewRole.menuItems} name={this.props.app.tabs.Roles.tabs.ViewRole.name} concatURL={url} />)
+				break
+			}
+			case"EmployeeRolesEditRole":{
+				return(<SideMenu menuItems={this.props.app.tabs.Roles.tabs.ViewRole.menuItems} name={this.props.app.tabs.Roles.tabs.ViewRole.name} concatURL={url} />)
 				break
 			}
 			default : {
