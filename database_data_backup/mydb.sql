@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 09, 2017 at 09:14 AM
+-- Generation Time: Aug 11, 2017 at 05:53 AM
 -- Server version: 5.7.18
 -- PHP Version: 5.6.28
 
@@ -108,6 +108,14 @@ CREATE TABLE `BudgetEntry` (
   `noOfUnits` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `BudgetEntry`
+--
+
+INSERT INTO `BudgetEntry` (`id`, `projectId`, `stageId`, `inventoryItemId`, `name`, `description`, `noOfUnits`) VALUES
+(8001, 4002, 5002, 7001, 'name', 'descrioption', 20),
+(8002, 4003, 5004, 7003, 'name', 'description', 12);
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +151,13 @@ CREATE TABLE `CustomerPayment` (
   `ammount` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `CustomerPayment`
+--
+
+INSERT INTO `CustomerPayment` (`id`, `customerId`, `projectId`, `description`, `ammount`, `date`) VALUES
+(1, 3001, 4001, 'fghjg', 343, '2017-08-10 12:05:28');
 
 -- --------------------------------------------------------
 
@@ -191,6 +206,16 @@ CREATE TABLE `InventoryItem` (
   `scale` varchar(45) DEFAULT NULL,
   `unitPrice` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `InventoryItem`
+--
+
+INSERT INTO `InventoryItem` (`id`, `projectId`, `name`, `scale`, `unitPrice`) VALUES
+(7001, 4002, 'item1', 'kg', 200),
+(7002, 4002, 'item2', 'mg', 100),
+(7003, 4003, 'item 3', 'g', 100),
+(7004, 4003, 'item 4', 'mg', 70);
 
 -- --------------------------------------------------------
 
@@ -355,7 +380,11 @@ CREATE TABLE `Stage` (
 --
 
 INSERT INTO `Stage` (`id`, `projectId`, `name`, `priority`, `description`, `startDate`, `endDate`, `ammount`) VALUES
-(5001, 4001, 'PetiCash', 1, NULL, '2017-07-01', '2017-07-01', 80000);
+(5001, 4001, 'PetiCash', 1, NULL, '2017-07-01', '2017-07-01', 80000),
+(5002, 4002, 'stage 1', 1, 'description', '2017-08-08', '2017-08-02', 0),
+(5003, 4002, 'stage 2', 2, 'description', '2017-08-16', '2017-08-24', 0),
+(5004, 4003, 'stage 3', 1, 'description', '2017-08-09', '2017-08-24', 0),
+(5005, 4003, 'stage 4', 2, 'description', '2017-08-16', '2017-08-24', 0);
 
 -- --------------------------------------------------------
 
@@ -438,7 +467,8 @@ CREATE TABLE `Vendor` (
 INSERT INTO `Vendor` (`id`, `name`, `address`, `description`, `type`) VALUES
 (6001, 'company default', 'company default', 'company default', 'company default'),
 (6002, 'vendor1 name', 'vendor1 address', 'vendor1 description', 'vendor1 type'),
-(6003, 'vendor2 name', 'vendor2 address', 'vendor2 description', 'vendor2 type');
+(6003, 'vendor2 name', 'vendor2 address', 'vendor2 description', 'vendor2 type'),
+(6004, 'kjn', 'asd', 'asd', 'ss');
 
 --
 -- Indexes for dumped tables
@@ -640,7 +670,7 @@ ALTER TABLE `Customer`
 -- AUTO_INCREMENT for table `CustomerPayment`
 --
 ALTER TABLE `CustomerPayment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `Employee`
 --
@@ -650,7 +680,7 @@ ALTER TABLE `Employee`
 -- AUTO_INCREMENT for table `InventoryItem`
 --
 ALTER TABLE `InventoryItem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7005;
 --
 -- AUTO_INCREMENT for table `MacroTransaction`
 --
@@ -675,12 +705,12 @@ ALTER TABLE `Role`
 -- AUTO_INCREMENT for table `Stage`
 --
 ALTER TABLE `Stage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5002;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5006;
 --
 -- AUTO_INCREMENT for table `Vendor`
 --
 ALTER TABLE `Vendor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6004;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6005;
 --
 -- Constraints for dumped tables
 --
