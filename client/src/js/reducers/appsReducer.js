@@ -154,6 +154,56 @@ export default function(state=defaulSate, action){
 				}
 			break;
 		}
+        case "PROJECT_PROJECTVIEW_GET_PENDING" : {
+            state = {...state,
+                Project: {...state.Project,
+                    tabs:{...state.Project.tabs,
+                        ViewProject:{...state.Project.tabs.ViewProject,
+                            project:{...state.Project.tabs.ViewProject.project,
+                                "downloaded":false,
+                                "downloading":true,
+                                "downloadError":null,
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+        }
+        case "PROJECT_PROJECTVIEW_GET_REJECTED" : {
+            state = {...state,
+                Project: {...state.Project,
+                    tabs:{...state.Project.tabs,
+                        ViewProject:{...state.Project.tabs.ViewProject,
+                            project:{...state.Project.tabs.ViewProject.project,
+                                "downloaded":false,
+                                "downloading":false,
+                                "downloadError":action.payload,
+                                "data":null
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+        }
+        case "PROJECT_PROJECTVIEW_GET_FULFILLED" : {
+            state = {...state,
+                Project: {...state.Project,
+                    tabs:{...state.Project.tabs,
+                        ViewProject:{...state.Project.tabs.ViewProject,
+                            project:{...state.Project.tabs.ViewProject.project,
+                                "downloaded":true,
+                                "downloading":false,
+                                "downloadError":null,
+                                "data":action.payload.data[0]
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+        }
 	}
 	return state;
 };
