@@ -173,10 +173,10 @@
         },
         "Project": {
             "name": "Projects",
-            "menueItems": [
+            "menuItems": [
                 [
                     {
-                        "name": "All",
+                        "name": "All Project",
                         "viewID": "ProjectAll"
                     }
                 ]
