@@ -18,8 +18,8 @@ export default class NewVendor extends React.Component {
 			description: '',
 			type: ''
 		}
-		this.save = this.save.bind(this);
-		this.changeName = this.changeName.bind(this);
+		//this.save = this.save.bind(this);
+		//this.changeName = this.changeName.bind(this);
 	}
 	save(e){
 		e.target.disabled = true,
