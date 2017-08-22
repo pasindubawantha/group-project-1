@@ -8,7 +8,9 @@ var TeamMember = {
  		return db.query("select * from TeamMember where employeeId=? and projectId=?", [id.employeeId, id.projectId], callback);
  	},
  	addTeamMember: function(TeamMember, callback){
- 		return db.query("insert into TeamMember values(?,?,?,?,?,?)", [TeamMember.employeeId, TeamMember.projectId, TeamMember.allowanceAppPriority, TeamMember.allowanceAppMember, TeamMember.paymentAppPriority, TeamMember.paymentAppMember], callback);
+ 		console.log(1111111111111111)
+ 		console.log(TeamMember)
+ 		return db.query("insert into TeamMember values(?,?,?,?,?,?,true)", [TeamMember.employeeId, TeamMember.projectId, TeamMember.allowanceAppPriority, TeamMember.allowanceAppMember, TeamMember.paymentAppPriority, TeamMember.paymentAppMember], callback);
  	},
  	deleteTeamMember:function(id, callback){
   		return db.query("delete from TeamMember where employeeId=? and projectId=?", [id.employeeId, id.projectId], callback);

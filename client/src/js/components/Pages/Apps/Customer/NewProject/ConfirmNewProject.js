@@ -47,7 +47,7 @@ export default class ConfirmNewProject extends React.Component {
 					const projectId = response.data[0].Auto_increment - 1
     				var inject = {teamlength:response.this.team.length, uploaded:0,failed:false, this:response.this }
     				for(var i in response.this.team){
-    					axiosInjector('teamMembers', 'post', {projectId:projectId, employeeId:response.this.team[i],allowanceAppMember:false,paymentAppMember:false}, inject)
+    					axiosInjector('teamMembers', 'post', {projectId:projectId, employeeId:response.this.team[i], allowanceAppPriority:false, allowanceAppMember:false, paymentAppPriority:-1, paymentAppMember:false}, inject)
     					.then(function(response){
     						response.this.uploaded++
     						if(response.this.uploaded == response.this.teamlength){
