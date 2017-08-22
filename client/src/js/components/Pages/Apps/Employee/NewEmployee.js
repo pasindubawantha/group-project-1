@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import ButtonLink from "../../Components/ButtonLink"
-import { NotificationManager } from 'react-notifications';
+import { NotificationManager } from 'react-notifications'
 import PickRole from './PickRole'
 import ConfirmEmployee from './ConfirmEmployee'
 import { updateFormData } from '../../../../actions/stateActions' 
