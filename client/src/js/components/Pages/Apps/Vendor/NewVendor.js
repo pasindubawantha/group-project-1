@@ -36,7 +36,7 @@ export default class NewVendor extends React.Component {
 		})
 	}
 	changeName(e){
-		if(e.target.value != "" || e.target.value != null){
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
 			this.setState({ name: e.target.value })
 			this.setState({ nameValidated: true })
 		}else{
@@ -44,7 +44,7 @@ export default class NewVendor extends React.Component {
 		}
 	}
 	changeAddress(e){
-		if(e.target.value != "" || e.target.value != null){
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
 			this.setState({ address: e.target.value })
 			this.setState({ addressValidated: true })
 		}else{
@@ -52,7 +52,7 @@ export default class NewVendor extends React.Component {
 		}
 	}
 	changeDescription(e){
-		if(e.target.value != "" || e.target.value != null){
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
 			this.setState({ description: e.target.value })
 			this.setState({ descriptionValidated: true })
 		}else{
@@ -60,7 +60,7 @@ export default class NewVendor extends React.Component {
 		}
 	}
 	changeType(e){
-		if(e.target.value != "" || e.target.value != null){
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
 			this.setState({ type: e.target.value })
 			this.setState({ typeValidated: true })
 		}else{

@@ -15,7 +15,8 @@ export default class ConfirmPayment extends React.Component {
 			customerId: this.props.customerId,
 			projectId: this.props.projectId,
 			ammount: 0,
-			description:"none"
+			description:"none",
+			ammountValidated : false
 		}
 	}
 	confirm(e){
@@ -29,7 +30,12 @@ export default class ConfirmPayment extends React.Component {
 		})
 	}
 	changeAmmount(e){
-		this.state.ammount = parseInt(e.target.value)
+		if(e.target.value != "" && e.target.value != null && parseInt(e.target.value) != 0){
+			this.setState({ ammount: e.target.value })
+			this.setState({ ammountValidated: true })
+		}else{
+			this.setState({ ammountValidated: false })
+		}
 	}
 	changeDescription(e){
 		this.state.description = e.target.value
@@ -64,7 +70,7 @@ export default class ConfirmPayment extends React.Component {
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-7">
-					<button onClick={this.confirm.bind(this)} type="button" class="btn btn-warning">Confirm</button>
+					<button onClick={this.confirm.bind(this)} disabled={!this.state.ammountValidated } type="button" class="btn btn-warning">Confirm</button>
 			  	</div>
 			  </div>
 			</form>

@@ -21,7 +21,7 @@ export default class NewCustomer extends React.Component {
 	confirm(e){
 	}
 	changeName(e){
-		if(e.target.value != "" || e.target.value != null){
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
 			this.setState({ customerName: e.target.value })
 			this.setState({ nameValidated: true })
 		}else{
@@ -29,7 +29,7 @@ export default class NewCustomer extends React.Component {
 		}
 	}
 	changeAddress(e){
-		if(e.target.value != "" || e.target.value != null){
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
 			this.setState({ addressName: e.target.value })
 			this.setState({ addressValidated: true })
 		}else{
