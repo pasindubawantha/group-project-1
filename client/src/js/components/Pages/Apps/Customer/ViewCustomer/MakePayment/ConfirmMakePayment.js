@@ -44,14 +44,23 @@ export default class ConfirmPayment extends React.Component {
 	render() {
 		return  (
 			<form class="form-horizontal">
-			  	<div class="form-group">
-					<label class="col-sm-3 control-label">Customer ID : </label>
-					<label class="col-sm-7 control-label">{this.props.customerId}</label>
-	    		</div>
-	    		<div class="form-group">
-					<label class="col-sm-3 control-label">Project ID : </label>
-					<label class="col-sm-7 control-label">{this.props.projectId}</label>
-	    		</div>
+				<div class="panel panel-default">
+					<div class="panel-heading"> <h4>Payment Details</h4></div>
+ 						 <div class="panel-body">
+  							<table class="table">
+								<tbody>
+									<tr>
+							    		<td>Customer ID </td>
+							    		<td>{this.props.customerId}</td>
+							    	</tr>
+							    	<tr>
+							    		<td>Project ID </td>
+							    		<td>{this.props.projectId}</td>
+							    	</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 	    	<div class="form-group">
 				    <label for="inputAmmount" class="col-sm-2 control-label">Description</label>
 				    <div class="col-sm-7">

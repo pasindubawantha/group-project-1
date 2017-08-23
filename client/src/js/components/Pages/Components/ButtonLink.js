@@ -9,8 +9,6 @@ import {goTo} from"../../../actions/urlActions.js"
 },)
 export default class ButtonLink extends React.Component {
 	onClickDo(e){
-		console.log("###############################################")
-		console.log(e.target.disabled)
 		if(!e.target.disabled){
 			this.props.onClick(e)
 			this.props.dispatch(goTo(this.props.url))

@@ -23,16 +23,23 @@ export default class ViewCustomer extends React.Component {
 		var { customerId, customer, url } = this.props
 			if(customer.downloaded){
 				return  (
-					<form class="form-horizontal">
-						<div class="form-group">
-	    					<label class="col-sm-3 control-label">Name : </label>
-	    					<label class="col-sm-7 control-label">{customer.data.name}</label>
-	    				</div>
-	    				<div class="form-group">
-	    					<label class="col-sm-3 control-label">Address : </label>
-	    					<label class="col-sm-7 control-label">{customer.data.address}</label>
-	    				</div>
-					</form>
+					<div class="panel panel-default">
+					<div class="panel-heading"> <h4>Client Details</h4></div>
+ 						 <div class="panel-body">
+  							<table class="table">
+								<tbody>
+									<tr>
+							    		<td>Name </td>
+							    		<td>{customer.data.name}</td>
+							    	</tr>
+							    	<tr>
+							    		<td>Address </td>
+							    		<td>{customer.data.address}</td>
+							    	</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				)
 			}else{
 				if(customer.downloadError != null){

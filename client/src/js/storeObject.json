@@ -19,11 +19,11 @@
         "companyLogo": "./resources/user/Company_Name/logo.png",
         "avatar": "./resources/user/Company_Name/darvin@company.com/avatar.png",
         "email": "darvin@company.com",
-        "defaults":{
-            "projectId":4001,
-            "customerId":3001,
-            "vendorId":6001,
-            "stageId":5001
+        "defaults": {
+            "projectId": 4001,
+            "customerId": 3001,
+            "vendorId": 6001,
+            "stageId": 5001
         }
     },
     "url": [
@@ -86,19 +86,36 @@
                         
                     }
                 },
-                "ViewCustomer":{
-                    "menuItems":[[{"name":"Customer Details", "viewID":"CustomerViewCustomer"}],
-                    [{"name":"Make Payment", "viewID":"CustomerMakePayment"}],
-                    [{"name":"Edite Customer Details", "viewID":"CustomerEditCustomer"}]],
-                    "customer":{
-                        "downloaded":false,
-                        "downloading":false,
-                        "downloadError":null,
-                        "uploaded":false,
-                        "uplading":false,
-                        "uploadError":null,
-                        "data":null
-                   }
+                "ViewCustomer": {
+                    "menuItems": [
+                        [
+                            {
+                                "name": "Customer Details",
+                                "viewID": "CustomerViewCustomer"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Make Payment",
+                                "viewID": "CustomerMakePayment"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Edit Customer Details",
+                                "viewID": "CustomerEditCustomer"
+                            }
+                        ]
+                    ],
+                    "customer": {
+                        "downloaded": false,
+                        "downloading": false,
+                        "downloadError": null,
+                        "uploaded": false,
+                        "uplading": false,
+                        "uploadError": null,
+                        "data": null
+                    }
                 }
             },
             "depnedantLists": [
@@ -133,34 +150,79 @@
                 ]
             ],
             "tabs": {
-                "ViewEmployee":{
-                    "menuItems":[[{"name":"Employee Details", "viewID":"EmployeeViewEmployee"}],
-                    [{"name":"Edite Employee Details", "viewID":"EmployeeEditEmployee"}],
-                    [{"name":"Allowances", "viewID":"EmployeeAllowancesAll"}],
-                    [{"name":"Add Allowance", "viewID":"EmployeeNewAllowance"}]],
-                    "employee":{
-                        "downloaded":false,
-                        "downloading":false,
-                        "downloadError":null,
-                        "data":null
-                   }
+                "ViewEmployee": {
+                    "menuItems": [
+                        [
+                            {
+                                "name": "Employee Details",
+                                "viewID": "EmployeeViewEmployee"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Edit Employee Details",
+                                "viewID": "EmployeeEditEmployee"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Allowances",
+                                "viewID": "EmployeeAllowancesAll"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Add Allowance",
+                                "viewID": "EmployeeNewAllowance"
+                            }
+                        ]
+                    ],
+                    "employee": {
+                        "downloaded": false,
+                        "downloading": false,
+                        "downloadError": null,
+                        "data": null
+                    }
                 },
-                "Roles":{
-                    "menuItems":[[{"name":"View All Roles", "viewID":"EmployeeRolesAll"}],
-                    [{"name":"New Role", "viewID":"EmployeeRolesNewRole"}]],
-                    "tabs":{
-                        "ViewRole":{
-                            "menuItems":[[{"name":"Role Details", "viewID":"EmployeeRolesViewRole"}],
-                            [{"name":"Edite Role", "viewID":"EmployeeRolesEditRole"}]],
-                            "role":{
-                                "downloaded":false,
-                                "downloading":false,
-                                "downloadError":null,
-                                "data":null
-                           }
+                "Roles": {
+                    "menuItems": [
+                        [
+                            {
+                                "name": "View All Roles",
+                                "viewID": "EmployeeRolesAll"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "New Role",
+                                "viewID": "EmployeeRolesNewRole"
+                            }
+                        ]
+                    ],
+                    "tabs": {
+                        "ViewRole": {
+                            "menuItems": [
+                                [
+                                    {
+                                        "name": "Role Details",
+                                        "viewID": "EmployeeRolesViewRole"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "name": "Edit Role",
+                                        "viewID": "EmployeeRolesEditRole"
+                                    }
+                                ]
+                            ],
+                            "role": {
+                                "downloaded": false,
+                                "downloading": false,
+                                "downloadError": null,
+                                "data": null
+                            }
                         }
                     }
-                    
                 }
             },
             "depnedantLists": [
@@ -183,20 +245,56 @@
             ],
             "tabs": {
                 "ViewProject": {
-                    "menuItems":[[{"name":"Project Details", "viewID":"ProjectViewProject"}],
-                    [{"name":"Edite Project Details", "viewID":"ProjectEditProject"}],
-                    [{"name":"Team", "viewID":"ProjectAllTeam"}],
-                    [{"name":"Payments", "viewID":"ProjectMakePayment"}],
-                    [{"name":"Material Request", "viewID":"ProjectMaterialRequest"}],
-                    [{"name":"Invendory", "viewID":"ProjectAllInventory"}],
-                    [{"name":"Budget", "viewID":"ProjectBudget"}]
+                    "menuItems": [
+                        [
+                            {
+                                "name": "Project Details",
+                                "viewID": "ProjectViewProject"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Edit Project Details",
+                                "viewID": "ProjectEditProject"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Team",
+                                "viewID": "ProjectAllTeam"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Payments",
+                                "viewID": "ProjectMakePayment"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Material Request",
+                                "viewID": "ProjectMaterialRequest"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Invendory",
+                                "viewID": "ProjectAllInventory"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Budget",
+                                "viewID": "ProjectBudget"
+                            }
+                        ]
                     ],
-                    "project":{
-                        "downloaded":false,
-                        "downloading":false,
-                        "downloadError":null,
-                        "data":null
-                   }
+                    "project": {
+                        "downloaded": false,
+                        "downloading": false,
+                        "downloadError": null,
+                        "data": null
+                    }
                 }
             },
             "depnedantLists": [
@@ -287,18 +385,30 @@
                         
                     }
                 },
-                "ViewVendor":{
-                    "menuItems":[[{"name":"Vendor Details", "viewID":"VendorViewVendor"}],
-                    [{"name":"Edite Vendor Details", "viewID":"VendorEditVendor"}]],
-                    "vendor":{
-                        "downloaded":false,
-                        "downloading":false,
-                        "downloadError":null,
-                        "uploaded":false,
-                        "uplading":false,
-                        "uploadError":null,
-                        "data":null
-                   }
+                "ViewVendor": {
+                    "menuItems": [
+                        [
+                            {
+                                "name": "Vendor Details",
+                                "viewID": "VendorViewVendor"
+                            }
+                        ],
+                        [
+                            {
+                                "name": "Edit Vendor Details",
+                                "viewID": "VendorEditVendor"
+                            }
+                        ]
+                    ],
+                    "vendor": {
+                        "downloaded": false,
+                        "downloading": false,
+                        "downloadError": null,
+                        "uploaded": false,
+                        "uplading": false,
+                        "uploadError": null,
+                        "data": null
+                    }
                 }
             },
             "depnedantLists": [
@@ -310,14 +420,14 @@
             }
         }
     },
-    "desktop":{
-        "downloaded":false
+    "desktop": {
+        "downloaded": false
     },
     "state": {
         "list": {
-            "downloading":false,
-            "downloaded":false,
-            "error":null,
+            "downloading": false,
+            "downloaded": false,
+            "error": null,
             "id": "",
             "all": [
                 
@@ -325,8 +435,12 @@
             "show": [
                 
             ],
-            "selected": {},
-            "picked": {}
+            "selected": {
+                
+            },
+            "picked": {
+                
+            }
         },
         "upload": {
             "id": "",
@@ -346,37 +460,49 @@
             "downloaded": false,
             "downloading": false,
             "error": null,
-            "data": []
+            "data": [
+                
+            ]
         },
         "customers": {
             "downloaded": false,
             "downloading": false,
             "error": null,
-            "data": []
+            "data": [
+                
+            ]
         },
         "vendors": {
             "downloaded": false,
             "downloading": false,
             "error": null,
-            "data": []
+            "data": [
+                
+            ]
         },
         "projects": {
             "downloaded": false,
             "downloading": false,
             "error": null,
-            "data": []
+            "data": [
+                
+            ]
         },
         "roles": {
             "downloaded": false,
             "downloading": false,
             "error": null,
-            "data": []
+            "data": [
+                
+            ]
         },
         "transactions": {
             "downloaded": false,
             "downloading": false,
             "error": null,
-            "data": []
+            "data": [
+                
+            ]
         }
     }
 }
