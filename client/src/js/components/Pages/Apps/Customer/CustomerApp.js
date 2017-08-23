@@ -16,7 +16,15 @@ import MakePayment from "./ViewCustomer/MakePayment/MakePayment"
 export default class CusotmerApp extends React.Component {
 	getTab(){
 		if(this.props.url[2] == null){
-			return <h2> Welcome to Customer App </h2>
+			return (<div class="panel panel-default">
+				  <div class="panel-body">
+				    <div class="jumbotron">
+					  <h1>&nbsp;Welcome to Customers App</h1>
+					  <p> &nbsp; &nbsp; Manage Your Customers here</p>
+					  <p>&nbsp; &nbsp; <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+					</div>
+				  </div>
+				</div>)
 		}
 		var tabViewID = this.props.url[2].viewID
 		switch(tabViewID){
