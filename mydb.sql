@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 23, 2017 at 04:27 AM
+-- Generation Time: Aug 23, 2017 at 06:36 AM
 -- Server version: 5.7.18
 -- PHP Version: 5.6.28
 
@@ -458,9 +458,9 @@ CREATE TABLE `Vendor` (
 --
 
 INSERT INTO `Vendor` (`id`, `name`, `address`, `description`, `type`) VALUES
-(6001, 'company default', 'company default', 'company default', 'company default'),
-(6002, 'vendor1 name', 'vendor1 address', 'vendor1 description', 'vendor1 type'),
-(6003, 'vendor2 name', 'vendor2 address', 'vendor2 description', 'vendor2 type');
+(6001, 'Tharindu Lakshan', '54, Melbro road, Colombo', 'Hardware supplier', 'supplier'),
+(6002, 'Yshoja Wirakoone', '78, Nawala road, Nawala.', 'Architect', 'service'),
+(6003, 'Nelna Perera', '89, Alms road, Hibutana.', 'Sub contractor', 'service');
 
 --
 -- Indexes for dumped tables
