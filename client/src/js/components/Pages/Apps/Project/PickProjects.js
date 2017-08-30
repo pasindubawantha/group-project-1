@@ -13,13 +13,13 @@ export default class PickProjects extends React.Component {
         var fields = {
             key:"id",
             id:"id",
-            label:["name","id","designation"],
-            search:["name","designation"]
+            label:["name","id"],
+            search:["name"]
         }
         var headers = {
             show:"Pick Project"
         }
-        var nextURL = this.props.url.slice(0, this.props.url.length - 1).concat({ name: "Project View", viewID: "ProjectViewProject"})
+        var nextURL = this.props.url.slice(0, this.props.url.length - 1).concat({ name: "Project View", viewID: "ViewProject"})
         return (<List nextURL={nextURL} listID={this.props.url[this.props.url.length-1].viewID} listAll={this.props.projectList} fields={fields} headers={headers} />)
     }
 }
