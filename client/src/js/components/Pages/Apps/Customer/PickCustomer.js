@@ -1,13 +1,16 @@
+//import laibarys
 import React from "react"
 import { connect } from "react-redux"
 import List from "../../Components/List"
 
+//connect to the store object
 @connect((store) => {
 	return {//props
 		url: store.url,
 		customersList: store.lists.customers.data
 	}
 },)
+//class for pickcustomer
 export default class PickCustomer extends React.Component {
 	render(){
 		var fields = {

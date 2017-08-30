@@ -1,8 +1,9 @@
+//imprt laibary
 import React from "react"
 import { connect } from "react-redux"
 import { NotificationManager } from 'react-notifications';
 import { getCustomerDetails } from '../../../../../actions/Apps/customerActions'
-
+//connect to store object
 @connect((store) => {
 	return {//props
 		url: store.url,
@@ -10,6 +11,7 @@ import { getCustomerDetails } from '../../../../../actions/Apps/customerActions'
 		customer: store.apps.Customer.tabs.ViewCustomer.customer
 	}
 },)
+//creat a class for viewcustomer
 export default class ViewCustomer extends React.Component {
 	componentWillMount(){
 		this.props.dispatch(getCustomerDetails(this.props.customerId))

@@ -1,3 +1,4 @@
+//import liabarys
 import React from "react"
 import { connect } from "react-redux"
 import ButtonLink from "../../../Components/ButtonLink"
@@ -5,13 +6,14 @@ import { NotificationManager } from 'react-notifications'
 import NewProject from '../NewProject/NewProject'
 import { axiosInjector } from '../../../../customFunctions'
 import { fetchList } from "../../../../../actions/listsActions"
-
+//connect to storeobject
 @connect((store) => {
 	return {//props
 		url: store.url,
 		customer: store.apps.Customer.tabs.ViewCustomer.customer
 	}
 },)
+//class for editcustomer
 export default class EditCustomer extends React.Component {
 	componentWillMount(){
 		this.state = {
@@ -22,8 +24,10 @@ export default class EditCustomer extends React.Component {
 			addressValidated: false
 		}
 	}
+	//comfirm the customer
 	confirm(e){
 	}
+	//change the name
 	changeName(e){
 		if(e.target.value != "" && e.target.value != null){
 			this.setState({ customerName: e.target.value })
@@ -32,6 +36,7 @@ export default class EditCustomer extends React.Component {
 			this.setState({ nameValidated: false })
 		}
 	}
+	//change the address
 	changeAddress(e){
 		if(e.target.value != "" && e.target.value != null){
 			this.setState({ addressName: e.target.value })
@@ -40,6 +45,7 @@ export default class EditCustomer extends React.Component {
 			this.setState({ addressValidated: false })
 		}
 	}
+	//save the address
 	save(e){
 		e.target.disabled = true
 		var customer = {

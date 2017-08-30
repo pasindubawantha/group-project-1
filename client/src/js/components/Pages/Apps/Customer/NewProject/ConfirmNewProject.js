@@ -1,8 +1,10 @@
+//import laibary
 import React from "react"
 import { connect } from "react-redux"
 import { NotificationManager } from 'react-notifications'
 import { axiosInjector } from '../../../../customFunctions'
 import { fetchList } from "../../../../../actions/listsActions"
+//connection to store
 @connect((store) => {
 	return {//props
 		url: store.url,
@@ -10,6 +12,7 @@ import { fetchList } from "../../../../../actions/listsActions"
 		data: store.state.form.data
 	}
 },)
+//class confirmnewproject
 export default class ConfirmNewProject extends React.Component {
 	componentWillMount(){
 		var data = Object.assign({}, this.props.data)

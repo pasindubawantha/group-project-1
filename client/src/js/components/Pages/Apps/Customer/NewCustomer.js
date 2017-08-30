@@ -1,14 +1,16 @@
+//import libariys
 import React from "react"
 import { connect } from "react-redux"
 import ButtonLink from "../../Components/ButtonLink"
 import { NotificationManager } from 'react-notifications';
 import NewProject from './NewProject/NewProject'
-
+//connect with store object
 @connect((store) => {
 	return {//props
 		url: store.url
 	}
 },)
+//creat a class for newcustomer
 export default class NewCustomer extends React.Component {
 	componentWillMount(){
 		this.state = {
@@ -18,8 +20,10 @@ export default class NewCustomer extends React.Component {
 			addressValidated: false
 		}
 	}
+	//for confim add customer
 	confirm(e){
 	}
+	//change the time
 	changeName(e){
 		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
 			this.setState({ customerName: e.target.value })
@@ -28,6 +32,7 @@ export default class NewCustomer extends React.Component {
 			this.setState({ nameValidated: false })
 		}
 	}
+	//change address
 	changeAddress(e){
 		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
 			this.setState({ customerAddress: e.target.value })
@@ -36,7 +41,7 @@ export default class NewCustomer extends React.Component {
 			this.setState({ addressValidated: false })
 		}
 	}
-
+	// this is a render methods
 	render() {
 		if(this.props.url[3] == null){
 			return  (

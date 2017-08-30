@@ -1,10 +1,11 @@
+//import the liaberys
 import React from "react"
 import { connect } from "react-redux"
 import ButtonLink from "../../Components/ButtonLink"
 import { NotificationManager } from 'react-notifications'
 import { fetchList } from "../../../../actions/listsActions"
 import { axiosInjector } from '../../../customFunctions'
-
+//connect to store obeject
 @connect((store) => {
 	return {//props
 		url: store.url

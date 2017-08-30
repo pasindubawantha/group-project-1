@@ -1,3 +1,4 @@
+//impert liabarys
 import React from "react"
 import { connect } from "react-redux"
 import List from "../../../../Components/List"
@@ -5,7 +6,7 @@ import axios from 'axios'
 import { downloadList } from '../../../../../../actions/stateActions'
 import { NotificationManager } from 'react-notifications'
 import ConfirmMakePayment from './ConfirmMakePayment'
-
+//connect to store object
 @connect((store) => {
 	return {//props
 		url: store.url,
@@ -13,6 +14,7 @@ import ConfirmMakePayment from './ConfirmMakePayment'
 		projectList: store.state.list
 	}
 },)
+//makepayment class
 export default class MakePayment extends React.Component {
 	componentWillMount(){
 		if(this.props.url[3] == null){
@@ -20,7 +22,7 @@ export default class MakePayment extends React.Component {
 			this.props.dispatch(downloadList('/customers/'+this.state.customerId+'/projects/'))
 		}
 	}
-
+	//make project
 	makeProjectList(list){
 		var fields = {
 			key:"id",
