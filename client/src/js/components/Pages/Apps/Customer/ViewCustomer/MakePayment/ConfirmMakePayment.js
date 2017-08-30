@@ -1,14 +1,16 @@
+//imprt the liabery
 import React from "react"
 import { connect } from "react-redux"
 import { NotificationManager } from 'react-notifications';
 import axios from "axios"
-
+//connect to store
 @connect((store) => {
 	return {//props
 		url: store.url,
 		projectId: store.state.list.picked['CustomerMakePayment']
 	}
 },)
+//class for confiampayment
 export default class ConfirmPayment extends React.Component {
 	componentWillMount(){
 		this.state = {
@@ -19,6 +21,7 @@ export default class ConfirmPayment extends React.Component {
 			ammountValidated : false
 		}
 	}
+	//confiam
 	confirm(e){
 		e.target.disabled = true
 		axios.post('/customerPayments/',this.state)
@@ -29,6 +32,7 @@ export default class ConfirmPayment extends React.Component {
 			NotificationManager.error('Unable to make transaction')
 		})
 	}
+	//change ammout
 	changeAmmount(e){
 		if(e.target.value != "" && e.target.value != null && parseInt(e.target.value) != 0){
 			this.setState({ ammount: e.target.value })

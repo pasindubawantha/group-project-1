@@ -1,15 +1,17 @@
+//import liabarys
 import React from "react"
 import { connect } from "react-redux"
 import ButtonLink from "../../../Components/ButtonLink"
 import { updateFormData } from "../../../../../actions/stateActions"
 import PickTeam from "./PickTeam"
 import ConfirmNewProject from "./ConfirmNewProject"
-
+//connection to staore
 @connect((store) => {
 	return {//props
 		url: store.url,
 	}
 },)
+//class for newproject
 export default class NewProject extends React.Component {
 	componentWillMount(){
 		this.state = {

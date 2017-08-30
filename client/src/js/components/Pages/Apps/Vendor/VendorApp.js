@@ -1,3 +1,4 @@
+//import liaberys
 import React from "react"
 import { connect } from "react-redux"
 import SideMenu from "../../Components/SideMenu.js"
@@ -5,13 +6,14 @@ import NewVendor from "./NewVendor"
 import PickVendor from "./PickVendor"
 import ViewVendor from "./ViewVendor/ViewVendor"
 import EditVendor from "./ViewVendor/EditVendor"
-
+//connect to staore
 @connect((store) => {
 	return {//props
 		url: store.url,
 		app: store.apps.Vendor
 	}
 },)
+//class for vendor apps
 export default class VendorApp extends React.Component {
 	getTab(){
 		if(this.props.url[2] == null){

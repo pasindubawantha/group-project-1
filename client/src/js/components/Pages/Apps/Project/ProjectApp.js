@@ -28,6 +28,7 @@ export default class ProjectApp extends React.Component {
             }
 
 			default : {
+
 				return <h2> Welcome to Project App </h2>
 			}
 		}
@@ -37,22 +38,23 @@ export default class ProjectApp extends React.Component {
 		if(this.props.url[2] == null){
 			return(<SideMenu menuItems={this.props.app.menuItems} name={this.props.app.name} concatURL={url} />)
 		}
-		/*
 		var tabViewID = this.props.url[2].viewID
 		switch(tabViewID){
 			case "ProjectAll":{
 				return(<SideMenu menuItems={this.props.app.menuItems} name={this.props.app.name} concatURL={url} />)
 				break
 			}
+
+
             case "ViewProject":{
                 return(<SideMenu menuItems={this.props.app.tabs.ViewProject.menuItems} name={this.props.app.tabs.ViewProject.name} concatURL={url} />)
                 break
             }
 
-			default : {*/
+			default : {
 				return <h2> Projects </h2>
-			//}
-		//}
+			}
+		}
 	}
 	render() {
 		return  (
