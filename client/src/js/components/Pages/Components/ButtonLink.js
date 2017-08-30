@@ -7,13 +7,15 @@ import {goTo} from"../../../actions/urlActions.js"
 		dummy: store.dummy
 	}
 },)
-export default class Link extends React.Component {
+export default class ButtonLink extends React.Component {
 	onClickDo(e){
-		this.props.onClick(e)
-		this.props.dispatch(goTo(this.props.url))
+		if(!e.target.disabled){
+			this.props.onClick(e)
+			this.props.dispatch(goTo(this.props.url))
+		}
 	}
 
 	render() {
-		return (<a class="btn btn-primary active" role="button" onClick={this.onClickDo.bind(this)} >{this.props.name}</a>)
+		return (<a class="btn btn-primary active" role="button" onClick={this.onClickDo.bind(this)}  disabled={this.props.disabled}>{this.props.name}</a>)
 	}
 }

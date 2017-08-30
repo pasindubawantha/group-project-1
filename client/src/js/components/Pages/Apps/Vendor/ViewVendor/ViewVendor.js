@@ -23,24 +23,31 @@ export default class ViewVendor extends React.Component {
 		var { vendorId, vendor, url } = this.props
 			if(vendor.downloaded){
 				return  (
-					<form class="form-horizontal">
-						<div class="form-group">
-	    					<label class="col-sm-3 control-label">Name : </label>
-	    					<label class="col-sm-7 control-label">{vendor.data.name}</label>
-	    				</div>
-	    				<div class="form-group">
-	    					<label class="col-sm-3 control-label">Address : </label>
-	    					<label class="col-sm-7 control-label">{vendor.data.address}</label>
-	    				</div>
-	    				<div class="form-group">
-	    					<label class="col-sm-3 control-label">Description : </label>
-	    					<label class="col-sm-7 control-label">{vendor.data.description}</label>
-	    				</div>
-	    				<div class="form-group">
-	    					<label class="col-sm-3 control-label">Type : </label>
-	    					<label class="col-sm-7 control-label">{vendor.data.type}</label>
-	    				</div>
-					</form>
+					<div class="panel panel-default">
+					<div class="panel-heading"> <h4>Vendor Details</h4></div>
+ 						 <div class="panel-body">
+  							<table class="table">
+								<tbody>
+									<tr>
+							    		<td>Name </td>
+							    		<td>{vendor.data.name}</td>
+							    	</tr>
+							    	<tr>
+							    		<td>Address </td>
+							    		<td>{vendor.data.address}</td>
+							    	</tr>
+							    	<tr>
+							    		<td>Description </td>
+							    		<td>{vendor.data.description}</td>
+							    	</tr>
+							    	<tr>
+							    		<td>Type </td>
+							    		<td>{vendor.data.type}</td>
+							    	</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				)
 			}else{
 				if(vendor.downloadError != null){

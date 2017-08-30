@@ -16,7 +16,11 @@ export default class NewVendor extends React.Component {
 			name: '',
 			address: '',
 			description: '',
-			type: ''
+			type: '',
+			nameValidated: false,
+			addressValidated: false,
+			descriptionValidated: false,
+			typeValidated: false,
 		}
 		//this.save = this.save.bind(this);
 		//this.changeName = this.changeName.bind(this);
@@ -32,21 +36,36 @@ export default class NewVendor extends React.Component {
 		})
 	}
 	changeName(e){
-		this.setState({ name: e.target.value });
-		//this.state.name = e.target.value
-		
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
+			this.setState({ name: e.target.value })
+			this.setState({ nameValidated: true })
+		}else{
+			this.setState({ nameValidated: false })
+		}
 	}
 	changeAddress(e){
-		this.setState({ address: e.target.value });
-		//this.state.address = e.target.value
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
+			this.setState({ address: e.target.value })
+			this.setState({ addressValidated: true })
+		}else{
+			this.setState({ addressValidated: false })
+		}
 	}
 	changeDescription(e){
-		this.setState({ description: e.target.value });
-		//this.state.description = e.target.value
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
+			this.setState({ description: e.target.value })
+			this.setState({ descriptionValidated: true })
+		}else{
+			this.setState({ descriptionValidated: false })
+		}
 	}
 	changeType(e){
-		this.setState({ type: e.target.value });
-		//this.state.type = e.target.value
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
+			this.setState({ type: e.target.value })
+			this.setState({ typeValidated: true })
+		}else{
+			this.setState({ typeValidated: false })
+		}
 	}
 
 
@@ -81,7 +100,7 @@ export default class NewVendor extends React.Component {
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-7">
-			    	<button className= "add-item__button" disabled={!(this.state.name && this.state.address && this.state.description && this.state.type) } onClick={this.save.bind(this)} type="button" class="btn btn-warning">Save</button>
+			    	<button className= "add-item__button" disabled={!(this.state.nameValidated && this.state.addressValidated && this.state.descriptionValidated && this.state.typeValidated)} onClick={this.save.bind(this)} type="button" class="btn btn-warning">Save</button>
 			  	</div>
 			  </div>
 			</form>

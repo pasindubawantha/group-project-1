@@ -20,11 +20,13 @@ export default class ListItem extends React.Component {
 	render() {
 		return (
 			<a class="list-group-item" onClick={this.onClickDo.bind(this)} >
-				<h4 class="list-group-item-heading">{this.props.heading}</h4>
+				<ul class="list-group">
+				<li class="list-group-item"> <h4 class="list-group-item-heading">{this.props.heading}</h4> </li>
 				{this.props.textFields.map(
-					field => (<span key={field} class="list-group-item-text">{ this.props.item[field] }</span>)
+					field => (<li key={field} class="list-group-item"><span class="label label-default"> {field} </span> &nbsp; &nbsp;{ this.props.item[field] }</li>)
 					)
 				}
+				</ul>
 			</a>)
 	}
 }

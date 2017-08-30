@@ -23,8 +23,8 @@ export default class ConfirmNewProject extends React.Component {
 			customerId: data.customerId,
 			name: data.projectName,
 			address: data.projectAddress,
-			startDate: data.startDate,
-			endDate: data.endDate
+			startDate: data.projectStartDate,
+			endDate: data.projectEndDate
 		}
 		this.team = []
 		for(var i in team){
@@ -34,6 +34,9 @@ export default class ConfirmNewProject extends React.Component {
 				}
 			}
 		}
+		console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+		console.log(this.customer)
+		console.log(data)
 	}
 
 	upload(e){
@@ -47,7 +50,7 @@ export default class ConfirmNewProject extends React.Component {
 					const projectId = response.data[0].Auto_increment - 1
     				var inject = {teamlength:response.this.team.length, uploaded:0,failed:false, this:response.this }
     				for(var i in response.this.team){
-    					axiosInjector('teamMembers', 'post', {projectId:projectId, employeeId:response.this.team[i],allowanceAppMember:false,paymentAppMember:false}, inject)
+    					axiosInjector('teamMembers', 'post', {projectId:projectId, employeeId:response.this.team[i], allowanceAppPriority:false, allowanceAppMember:false, paymentAppPriority:-1, paymentAppMember:false}, inject)
     					.then(function(response){
     						response.this.uploaded++
     						if(response.this.uploaded == response.this.teamlength){
@@ -103,51 +106,78 @@ export default class ConfirmNewProject extends React.Component {
 		var { project, customer} = this
 		var { team } = this.props
 		return (
-			<form class="form-horizontal">
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Customer Name : </label>
-					<label class="col-sm-7 control-label">{customer.name}</label>
-	    		</div>	
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Customer Address : </label>
-					<label class="col-sm-7 control-label">{customer.address}</label>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Project Name : </label>
-					<label class="col-sm-7 control-label">{project.name}</label>
-	    		</div>	
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Project Address : </label>
-					<label class="col-sm-7 control-label">{project.address}</label>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Project Starting Date : </label>
-					<label class="col-sm-7 control-label">{project.startDate}</label>
-	    		</div>	
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Project End Date : </label>
-					<label class="col-sm-7 control-label">{project.endDate}</label>
-				</div>
-				<div>
-				<h3>team</h3>
-				{ team.map( function(member) { 
-					if(member != null){
-						return (
-						<div key={member.id} class="form-group">
-							<label class="col-sm-3 control-label">{member.name}</label>
-							<label class="col-sm-3 control-label">{member.designation}</label>
+			<div>
+			<div class="panel panel-default">
+					<div class="panel-heading"> <h4>New Customer Details</h4></div>
+ 						 <div class="panel-body">
+  							<table class="table">
+								<tbody>
+									<tr>
+							    		<th>Name </th>
+							    		<th>Address </th>
+							    	</tr>
+							    	<tr>
+							    		<td>{customer.name} </td>
+							    		<td>{customer.address} </td>
+							    	</tr>
+								</tbody>
+							</table>
 						</div>
-						)
-					}
-					} 
-				)}
-				</div>
+					</div>
+					<div class="panel panel-default">
+					<div class="panel-heading"> <h4>New Project Details</h4></div>
+ 						 <div class="panel-body">
+  							<table class="table">
+								<tbody>
+							    	<tr>
+							    		<th>Name </th>
+							    		<th>Address </th>
+							    		<th>Start Date </th>
+							    		<th>End Date </th>
+							    	</tr>
+							    	<tr>
+							    		<td>{project.name} </td>
+							    		<td>{project.address} </td>
+							    		<td>{project.startDate} </td>
+							    		<td>{project.endDate} </td>
+							    	</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="panel panel-default">
+					<div class="panel-heading"> <h4>New Project Team details</h4></div>
+ 						 <div class="panel-body">
+  							<table class="table">
+								<tbody>
+									<tr>
+							    		<th>Name </th>
+							    		<th>Designation</th>
+							    	</tr>
+							    	{ team.map( function(member) { 
+										if(member != null){
+											return (
+											<tr key={member.id} class="form-group">
+												<td>{member.name}</td>
+												<td>{member.designation}</td>
+											</tr>
+											)
+										}
+										} 
+									)}
+								</tbody>
+							</table>
+						</div>
+					</div>
+			<form class="form-horizontal">
+				
 				<div class="form-group">
-				    <div class="col-sm-offset-2 col-sm-7">
+				    <div class="col-sm-7">
 						<button onClick={this.upload.bind(this)} type="button" class="btn btn-warning">Save</button>
 					</div>
 				</div>
 			</form>
+			</div>
 		)
 	}
 }

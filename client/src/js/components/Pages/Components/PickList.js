@@ -111,34 +111,67 @@ export default class PickList extends React.Component {
 				  		<ButtonLink url={this.props.returnButton.url} name={this.props.returnButton.name} onClick={this.confirm.bind(this)}/>
 				  </div>
 				</form>
+				<br></br>
 
 				<row>
-				<h4>{this.props.headers.selected}</h4>
-					<ul class="list-group">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">{this.props.headers.selected}</h3>
+				  </div>
+				  <div class="panel-body">
+				  	<ul class="list-group">
 					{this.props.list.selected[this.props.listID].map(function(item){
+
 						if(item != null){ return(
-						<li key={item[this.props.fields.key]}> 
-							<label>
-						 	<input id={item[this.props.fields.id]} onChange={this.onChangeCheckBox.bind(this)} type="checkbox" checked="true"/>
-							{this.props.fields.label.map(label => <span key={label + item[label]}> {item[label]} </span>)}
-							</label>
-						</li>)}}, this)}
+						  <li class="list-group-item" key={item[this.props.fields.key]}>
+						  <div class="input-group">
+						      <span class="input-group-addon">
+						        <input id={item[this.props.fields.id]} onChange={this.onChangeCheckBox.bind(this)} type="checkbox" checked="true"/>
+						      </span>
+						      <ul class="list-group">
+								{this.props.fields.label.map(
+									label => (<li key={label + item[label]} class="list-group-item"><span class="label label-default"> {label} </span> &nbsp; &nbsp;{ item[label] }</li>)
+									)
+								}
+								</ul>
+						    </div>
+						  </li>
+						)}}, this)}
+				
 					</ul>
+				  </div>
+				</div>
+					
 				</row>
 
 				<row>
-				<h4>{this.props.headers.show}</h4>
-				<ul class="list-group">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">{this.props.headers.show}</h3>
+				  </div>
+				  <div class="panel-body">
+				    <ul class="list-group">
 					{this.props.list.show.map(function(item){
 
 						if(item != null){ return(
-						<li key={item[this.props.fields.key]}> 
-							<label>
-						 	<input id={item[this.props.fields.id]} onChange={this.onChangeCheckBox.bind(this)} type="checkbox"/>
-							{this.props.fields.label.map(label => <span key={label + item[label]}> {item[label]} </span>)}
-							</label>
-						</li>)}}, this)}
+						  <li class="list-group-item" key={item[this.props.fields.key]}>
+						  <div class="input-group">
+						      <span class="input-group-addon">
+						        <input id={item[this.props.fields.id]} onChange={this.onChangeCheckBox.bind(this)} type="checkbox"/>
+						      </span>
+						      <ul class="list-group">
+								{this.props.fields.label.map(
+									label => (<li key={label + item[label]} class="list-group-item"><span class="label label-default"> {label} </span> &nbsp; &nbsp;{ item[label] }</li>)
+									)
+								}
+								</ul>
+						    </div>
+						  </li>
+						)}}, this)}
 					</ul>
+				  </div>
+				</div>
+			
 				</row>
 			</div>)
 		}

@@ -15,7 +15,8 @@ export default class ConfirmPayment extends React.Component {
 			customerId: this.props.customerId,
 			projectId: this.props.projectId,
 			ammount: 0,
-			description:"none"
+			description:"none",
+			ammountValidated : false
 		}
 	}
 	confirm(e){
@@ -29,7 +30,12 @@ export default class ConfirmPayment extends React.Component {
 		})
 	}
 	changeAmmount(e){
-		this.state.ammount = parseInt(e.target.value)
+		if(e.target.value != "" && e.target.value != null && parseInt(e.target.value) != 0){
+			this.setState({ ammount: e.target.value })
+			this.setState({ ammountValidated: true })
+		}else{
+			this.setState({ ammountValidated: false })
+		}
 	}
 	changeDescription(e){
 		this.state.description = e.target.value
@@ -38,14 +44,23 @@ export default class ConfirmPayment extends React.Component {
 	render() {
 		return  (
 			<form class="form-horizontal">
-			  	<div class="form-group">
-					<label class="col-sm-3 control-label">Customer ID : </label>
-					<label class="col-sm-7 control-label">{this.props.customerId}</label>
-	    		</div>
-	    		<div class="form-group">
-					<label class="col-sm-3 control-label">Project ID : </label>
-					<label class="col-sm-7 control-label">{this.props.projectId}</label>
-	    		</div>
+				<div class="panel panel-default">
+					<div class="panel-heading"> <h4>Payment Details</h4></div>
+ 						 <div class="panel-body">
+  							<table class="table">
+								<tbody>
+									<tr>
+							    		<td>Customer ID </td>
+							    		<td>{this.props.customerId}</td>
+							    	</tr>
+							    	<tr>
+							    		<td>Project ID </td>
+							    		<td>{this.props.projectId}</td>
+							    	</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 	    	<div class="form-group">
 				    <label for="inputAmmount" class="col-sm-2 control-label">Description</label>
 				    <div class="col-sm-7">
@@ -64,7 +79,7 @@ export default class ConfirmPayment extends React.Component {
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-7">
-					<button onClick={this.confirm.bind(this)} type="button" class="btn btn-warning">Confirm</button>
+					<button onClick={this.confirm.bind(this)} disabled={!this.state.ammountValidated } type="button" class="btn btn-warning">Confirm</button>
 			  	</div>
 			  </div>
 			</form>

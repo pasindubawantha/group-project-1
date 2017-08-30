@@ -13,16 +13,28 @@ export default class NewCustomer extends React.Component {
 	componentWillMount(){
 		this.state = {
 			customerName: null,
-			customerAddress: null
+			customerAddress: null,
+			nameValidated:false,
+			addressValidated: false
 		}
 	}
 	confirm(e){
 	}
 	changeName(e){
-		this.state.customerName = e.target.value
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
+			this.setState({ customerName: e.target.value })
+			this.setState({ nameValidated: true })
+		}else{
+			this.setState({ nameValidated: false })
+		}
 	}
 	changeAddress(e){
-		this.state.customerAddress = e.target.value
+		if(e.target.value != e.target.placeholder && e.target.value != "" && e.target.value != null){
+			this.setState({ customerAddress: e.target.value })
+			this.setState({ addressValidated: true })
+		}else{
+			this.setState({ addressValidated: false })
+		}
 	}
 
 	render() {
@@ -43,7 +55,7 @@ export default class NewCustomer extends React.Component {
 				  </div>
 				  <div class="form-group">
 				    <div class="col-sm-offset-2 col-sm-7">
-				    	<ButtonLink url={this.props.url.concat({name:'New Project ', viewID:'CustomerNewCustomerNewProject'})} name="Create Project" onClick={this.confirm.bind(this)}/>
+				    	<ButtonLink disabled={!(this.state.nameValidated && this.state.addressValidated)} url={this.props.url.concat({name:'New Project ', viewID:'CustomerNewCustomerNewProject'})} name="Create Project" onClick={this.confirm.bind(this)}/>
 				  	</div>
 				  </div>
 				</form>

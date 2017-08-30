@@ -57,13 +57,13 @@ export default class NewProject extends React.Component {
 				  	<div class="form-group">
 				    	<label class="col-sm-2 control-label">Starting Date</label>
 				    	<div class="col-sm-7">
-				      		<input onChange={this.changeStartDate.bind(this)} type="date" class="form-control" placeholder="yyyy/mm/dd" />
+				      		<input onChange={this.changeStartDate.bind(this)} type="date" class="form-control" placeholder="yyyy-mm-dd" />
 				    	</div>
 				  	</div>
 				  	<div class="form-group">
 				    	<label class="col-sm-2 control-label">End Date</label>
 				    	<div class="col-sm-7">
-				      		<input onChange={this.changeEndDate.bind(this)} type="date" class="form-control" placeholder="mm/dd/yyyy" />
+				      		<input onChange={this.changeEndDate.bind(this)} type="date" class="form-control" placeholder="yyyy-mm-dd" />
 				    	</div>
 				  	</div>
 

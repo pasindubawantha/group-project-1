@@ -17,16 +17,28 @@ export default class EditCustomer extends React.Component {
 		this.state = {
 			customerId:this.props.customer.data.id,
 			customerName:this.props.customer.data.name,
-			customerAddress:this.props.customer.data.address
+			customerAddress:this.props.customer.data.address,
+			nameValidated:false,
+			addressValidated: false
 		}
 	}
 	confirm(e){
 	}
 	changeName(e){
-		this.state.customerName = e.target.value
+		if(e.target.value != "" && e.target.value != null){
+			this.setState({ customerName: e.target.value })
+			this.setState({ nameValidated: true })
+		}else{
+			this.setState({ nameValidated: false })
+		}
 	}
 	changeAddress(e){
-		this.state.customerAddress = e.target.value
+		if(e.target.value != "" && e.target.value != null){
+			this.setState({ addressName: e.target.value })
+			this.setState({ addressValidated: true })
+		}else{
+			this.setState({ addressValidated: false })
+		}
 	}
 	save(e){
 		e.target.disabled = true
@@ -63,7 +75,7 @@ export default class EditCustomer extends React.Component {
 				  <div class="form-group">
 				    <div class="col-sm-offset-2 col-sm-7">
 				    	<button onClick={this.save.bind(this)} type="button" class="btn btn-warning">Save</button>
-				    	<ButtonLink url={this.props.url.concat({name:'New Project ', viewID:'CustomerEditCustomerNewProject'})} name="Create New Project" onClick={this.confirm.bind(this)}/>
+				    	<ButtonLink disabled={!(this.state.nameValidated && this.state.addressValidated)}  url={this.props.url.concat({name:'New Project ', viewID:'CustomerEditCustomerNewProject'})} name="Create New Project" onClick={this.confirm.bind(this)}/>
 				  	</div>
 				  </div>
 				</form>

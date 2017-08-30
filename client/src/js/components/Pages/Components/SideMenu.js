@@ -10,9 +10,13 @@ export default class SideMenu extends React.Component {
 		}
 	}
 	render() {
-		return (<div>
-			<h2>{this.props.name}</h2>
-			<ul class="nav nav-pills nav-stacked">{this.createSideMenue(this.props.menuItems, this.props.concatURL)} </ul>
+		return (<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">{this.props.name}</h3>
+			  </div>
+			  <div class="panel-body">
+			    <ul class="nav nav-pills nav-stacked">{this.createSideMenue(this.props.menuItems, this.props.concatURL)} </ul>
+			  </div>
 			</div>)
 	}
 }

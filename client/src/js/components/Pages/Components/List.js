@@ -67,15 +67,18 @@ export default class List extends React.Component {
 			return(<p>Nothing to show</p>)
 		}else{
 			return (
+
 				<div>
+				<div class="well"><h4>{this.props.headers.show}</h4></div>
 					<form class="form-inline">
 					  <div class="form-group">
 					    	<input onChange={this.onChangeSearch.bind(this)} type="text" class="form-control" id="exampleInputAmount" placeholder="Search"/>
 					  </div>
 					</form>
+					<br></br>
 
 					<row>
-						<h4>{this.props.headers.show}</h4>
+						
 						<div class="list-group">
 							{this.props.list.show.map(
 								function(item) {
