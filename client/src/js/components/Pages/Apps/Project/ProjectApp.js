@@ -22,7 +22,7 @@ export default class ProjectApp extends React.Component {
 				return(<PickProjects />)
 				break
 			}
-            case "ViewProject":{
+            case "ProjectViewProject":{
                 return(<ViewProject />)
                 break
             }
@@ -46,7 +46,7 @@ export default class ProjectApp extends React.Component {
 			}
 
 
-            case "ViewProject":{
+            case "ProjectViewProject":{
                 return(<SideMenu menuItems={this.props.app.tabs.ViewProject.menuItems} name={this.props.app.tabs.ViewProject.name} concatURL={url} />)
                 break
             }
