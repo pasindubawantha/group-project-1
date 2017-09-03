@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import SideMenu from "../../Components/SideMenu.js"
 import PickProjects from "./PickProjects"
 import ViewProject from "./ViewProject"
+import EditProject from "./EditProject";
 
 
 @connect((store) => {
@@ -26,6 +27,10 @@ export default class ProjectApp extends React.Component {
                 return(<ViewProject />)
                 break
             }
+			case "ProjectEditProject":{
+				return(<EditProject />)
+				break
+			}
 
 			default : {
 
@@ -44,13 +49,22 @@ export default class ProjectApp extends React.Component {
 				return(<SideMenu menuItems={this.props.app.menuItems} name={this.props.app.name} concatURL={url} />)
 				break
 			}
-
-
             case "ProjectViewProject":{
                 return(<SideMenu menuItems={this.props.app.tabs.ViewProject.menuItems} name={this.props.app.tabs.ViewProject.name} concatURL={url} />)
                 break
             }
-
+			case "ProjectEditProject":{
+				return(<SideMenu menuItems={this.props.app.tabs.ViewProject.menuItems} name={this.props.app.tabs.ViewProject.name} concatURL={url} />)
+				break
+			}
+			case "ProjectBudget":{
+				return(<SideMenu menuItems={this.props.app.tabs.Budget.menuItems} name={this.props.app.tabs.Budget.name} concatURL={url}/>)
+				break
+			}
+			case "InvendoryViewProject":{
+				return(<SideMenu menuItems={this.props.app.tabs.Budget.tabs.Invendory.menuItems} name={this.props.app.tabs.Budget.tabs.Invendory.name} concatURL={url} />)
+				break
+			}
 			default : {
 				return <h2> Projects </h2>
 			}
