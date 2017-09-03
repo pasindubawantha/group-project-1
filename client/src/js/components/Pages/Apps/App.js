@@ -5,6 +5,7 @@ import EmployeeApp from "./Employee/EmployeeApp"
 import ProjectApp from "./Project/ProjectApp"
 import ReverseApp from "./Reverse/ReverseApp"
 import VendorApp from "./Vendor/VendorApp"
+import ApprovalApp from "./Approval/ApprovalApp"
 
 export default class App extends React.Component {
 	render() {
@@ -14,7 +15,8 @@ export default class App extends React.Component {
 			case "Employee" : {return (<EmployeeApp />)}
 			case "Project" : {return (<ProjectApp />)}
 			case "Reverse" : {return (<ReverseApp />)}
-			case "Vendor" : {return <VendorApp />}
+			case "Vendor" : {return (<VendorApp />)}
+			case "Approval" : {return (<ApprovalApp />)}
 		}
 	}
 }
