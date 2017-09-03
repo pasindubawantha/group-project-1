@@ -12,7 +12,8 @@
             "Employee",
             "Project",
             "Reverse",
-            "Vendor"
+            "Vendor",
+            "Approval"
         ],
         "name": "Darvin Helna",
         "companyName": "Company Name",
@@ -466,6 +467,37 @@
             "icon": {
                 "src": "./resources/apps/Vendor/icon.png"
             }
+        },
+        "Approval": {
+            "name": "Approvals",
+            "menuItems": [
+                [
+                    {
+                        "name": "Inbox",
+                        "viewID": "ApprovalInboxAll"
+                    }
+                ],
+                [
+                    {
+                        "name": "Approved",
+                        "viewID": "ApprovalApprovedAll"
+                    }
+                ],
+                [
+                    {
+                        "name": "Pending",
+                        "viewID": "ApprovalPendingAll"
+                    }
+                ]
+            ],
+            "tabs": {},
+            "depnedantLists": [
+                "employees",
+                "roles"
+            ],
+            "icon": {
+                "src": "./resources/apps/Employee/icon.png"
+            }
         }
     },
     "desktop": {
@@ -545,6 +577,54 @@
             ]
         },
         "transactions": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": [
+                
+            ]
+        },
+        "approvalsApprovedMaterial": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": [
+                
+            ]
+        },
+        "approvalsApprovedPayment": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": [
+                
+            ]
+        },
+        "approvalsPendingMaterial": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": [
+                
+            ]
+        },
+        "approvalsPendingPayment": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": [
+                
+            ]
+        },
+        "approvalsInboxMaterial": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": [
+                
+            ]
+        },
+        "approvalsInboxPayment": {
             "downloaded": false,
             "downloading": false,
             "error": null,
