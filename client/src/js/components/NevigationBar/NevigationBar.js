@@ -31,7 +31,6 @@ export default class NevigationBar extends React.Component {
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav">
 		            <MenuItem url={[{name:"Home", viewID:"Home"}]} name="Home"/>
-		            <MenuItem url={[{name:"Notifications", viewID:"Notifications"}]} name="Notifications"/>
 		          </ul>
 		          <User />
 		        </div>
