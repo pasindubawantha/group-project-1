@@ -202,6 +202,72 @@ export default function(state=defaulSate, action){
 				}
 			break;
 		}
+		case "FETCHING_LIST_approvalsApprovedMaterial_PENDING" : {
+			state = {...state, 
+					approvalsApprovedMaterial : {
+						downloaded:false,
+						downloading:true,
+						error:null,
+						data:null
+					}
+				}
+			break;
+		}
+		case "FETCHING_LIST_approvalsApprovedMaterial_REJECTED" : {
+			state = {...state, 
+					approvalsApprovedMaterial : {
+						downloaded:false,
+						downloading:false,
+						error: action.payload,
+						data:null
+					}
+				}
+			break;
+		}
+		case "FETCHING_LIST_approvalsApprovedMaterial_FULFILLED" : {
+			state = {...state, 
+					approvalsApprovedMaterial : {
+						downloaded:true,
+						downloading:false,
+						error: null,
+						data:action.payload.data
+					}
+				}
+			break;
+		}
+		case "FETCHING_LIST_approvalsApprovedPayment_PENDING" : {
+			state = {...state, 
+					approvalsApprovedPayment : {
+						downloaded:false,
+						downloading:true,
+						error:null,
+						data:null
+					}
+				}
+			break;
+		}
+		case "FETCHING_LIST_approvalsApprovedPayment_REJECTED" : {
+			state = {...state, 
+					approvalsApprovedPayment : {
+						downloaded:false,
+						downloading:false,
+						error: action.payload,
+						data:null
+					}
+				}
+			break;
+		}
+		case "FETCHING_LIST_approvalsApprovedPayment_FULFILLED" : {
+			state = {...state, 
+					approvalsApprovedPayment : {
+						downloaded:true,
+						downloading:false,
+						error: null,
+						data:action.payload.data
+					}
+				}
+			break;
+		}
 	}
 	return state;
 };

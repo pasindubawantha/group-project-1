@@ -2,6 +2,10 @@
 import React from "react"
 import { connect } from "react-redux"
 import SideMenu from "../../Components/SideMenu.js"
+import PickApproved from "./Approved/PickApproved"
+import PickDenied from "./Denied/PickDenied"
+import PickInbox from "./Inbox/PickInbox"
+import PickPending from "./Pending/PickPending"
 //connect to store object
 @connect((store) => {
 	return {//props
@@ -40,6 +44,11 @@ export default class ApprovalApp extends React.Component {
 	//Pending requests tab		
 			case "ApprovalPendingAll":{
 				return(<PickPending />)
+				break
+			}
+	//Denied requests tab		
+			case "ApprovalDeniedAll":{
+				return(<PickDenied />)
 				break
 			}
 	//not select any tab go to homepage of customer		

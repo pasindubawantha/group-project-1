@@ -1,0 +1,1 @@
+SELECT * from Transaction as t INNER JOIN TransactionApproval as ta on t.id = ta.transactionId where t.id = 9001

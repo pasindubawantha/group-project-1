@@ -2,7 +2,7 @@
 import React from "react"
 //import PickApprovedMaterial from "./PickApprovedMaterial"
 
-export default class PickInbox extends React.Component {
+export default class PickDenied extends React.Component {
 	render() {
 		return  (
 			<div class="row">
