@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 25, 2017 at 04:13 PM
+-- Generation Time: Sep 03, 2017 at 09:05 AM
 -- Server version: 5.7.18
 -- PHP Version: 5.6.28
 
@@ -34,28 +34,29 @@ CREATE TABLE `TeamMember` (
   `allowanceAppPriority` int(11) DEFAULT NULL,
   `allowanceAppMember` tinyint(1) NOT NULL DEFAULT '0',
   `paymentAppPriority` int(11) DEFAULT NULL,
-  `paymentAppMember` tinyint(1) NOT NULL DEFAULT '0'
+  `paymentAppMember` tinyint(1) NOT NULL DEFAULT '0',
+  `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `TeamMember`
 --
 
-INSERT INTO `TeamMember` (`employeeId`, `projectId`, `allowanceAppPriority`, `allowanceAppMember`, `paymentAppPriority`, `paymentAppMember`) VALUES
-(2001, 4001, NULL, 0, NULL, 0),
-(2002, 4001, NULL, 0, NULL, 0),
-(2003, 4001, NULL, 0, NULL, 0),
-(2005, 4001, NULL, 0, NULL, 0),
-(2006, 4001, NULL, 0, NULL, 0),
-(2006, 4002, NULL, 0, NULL, 0),
-(2007, 4001, NULL, 0, NULL, 0),
-(2007, 4002, NULL, 0, NULL, 0),
-(2008, 4001, NULL, 0, NULL, 0),
-(2009, 4001, NULL, 0, NULL, 0),
-(2009, 4002, NULL, 0, NULL, 0),
-(2010, 4001, NULL, 0, NULL, 0),
-(2011, 4001, NULL, 0, NULL, 0),
-(2012, 4001, NULL, 0, NULL, 0);
+INSERT INTO `TeamMember` (`employeeId`, `projectId`, `allowanceAppPriority`, `allowanceAppMember`, `paymentAppPriority`, `paymentAppMember`, `active`) VALUES
+(2001, 4001, NULL, 0, NULL, 0, 1),
+(2002, 4001, NULL, 0, NULL, 0, 1),
+(2003, 4001, NULL, 0, NULL, 0, 1),
+(2005, 4001, NULL, 0, NULL, 0, 1),
+(2006, 4001, NULL, 0, NULL, 0, 1),
+(2006, 4002, NULL, 0, NULL, 0, 1),
+(2007, 4001, NULL, 0, NULL, 0, 1),
+(2007, 4002, NULL, 0, NULL, 0, 1),
+(2008, 4001, NULL, 0, NULL, 0, 1),
+(2009, 4001, NULL, 0, NULL, 0, 1),
+(2009, 4002, NULL, 0, NULL, 0, 1),
+(2010, 4001, NULL, 0, NULL, 0, 1),
+(2011, 4001, NULL, 0, NULL, 0, 1),
+(2012, 4001, NULL, 0, NULL, 0, 1);
 
 --
 -- Indexes for dumped tables

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 25, 2017 at 04:12 PM
+-- Generation Time: Sep 03, 2017 at 09:06 AM
 -- Server version: 5.7.18
 -- PHP Version: 5.6.28
 
@@ -25,32 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Customer`
+-- Table structure for table `Vendor`
 --
 
-CREATE TABLE `Customer` (
+CREATE TABLE `Vendor` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `address` varchar(255) DEFAULT NULL
+  `address` varchar(255) DEFAULT NULL,
+  `description` varchar(512) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Customer`
+-- Dumping data for table `Vendor`
 --
 
-INSERT INTO `Customer` (`id`, `name`, `address`) VALUES
-(3001, 'company default', 'company default'),
-(3002, 'customer1 name', 'customer1 address'),
-(3003, 'customer2 name', 'customer2 address');
+INSERT INTO `Vendor` (`id`, `name`, `address`, `description`, `type`) VALUES
+(6001, 'Tharindu Lakshan', '54, Melbro road, Colombo', 'Hardware supplier', 'supplier'),
+(6002, 'Yshoja Wirakoone', '78, Nawala road, Nawala.', 'Architect', 'service'),
+(6003, 'Nelna Perera', '89, Alms road, Hibutana.', 'Sub contractor', 'service');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Customer`
+-- Indexes for table `Vendor`
 --
-ALTER TABLE `Customer`
+ALTER TABLE `Vendor`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -58,10 +60,10 @@ ALTER TABLE `Customer`
 --
 
 --
--- AUTO_INCREMENT for table `Customer`
+-- AUTO_INCREMENT for table `Vendor`
 --
-ALTER TABLE `Customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3004;COMMIT;
+ALTER TABLE `Vendor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6004;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
