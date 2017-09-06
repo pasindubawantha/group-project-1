@@ -8,14 +8,14 @@ import { fetchApprovalList } from "../../../../../actions/listsActions"
 @connect((store) => {
 	return {//props
 		url: store.url,
-		list: store.lists.approvalsPendingMaterial,
+		list: store.lists.approvalsDeniedPayment,
 		userId: store.user.userEmployeeId
 	}
 },)
 //class for pickvinores
-export default class PickPendingMaterial extends React.Component {
+export default class PickDeniedPayment extends React.Component {
 	componentWillMount(){
-		this.props.dispatch(fetchApprovalList('approvalsPendingMaterial', 'pending/material/' + this.props.userId))
+		this.props.dispatch(fetchApprovalList('approvalsDeniedPayment', 'denied/payment/' + this.props.userId))
 	}
 	render(){
 		var { list } = this.props
@@ -27,9 +27,9 @@ export default class PickPendingMaterial extends React.Component {
 				search:["itemName","projectName","createdDate"]
 			}
 			var headers = {
-				show:"Pending Material"
+				show:"Denied Payment"
 			}
-			var nextURL = this.props.url.slice(0, this.props.url.length - 1).concat({ name: "View Pedning Request", viewID: "ApprovalViewPendingMaterial"})
+			var nextURL = this.props.url.slice(0, this.props.url.length - 1).concat({ name: "View Denied Request", viewID: "ApprovalViewDeniedPayment"})
 			return (
 				<div class="panel panel-default">
 					<div class="panel-body">

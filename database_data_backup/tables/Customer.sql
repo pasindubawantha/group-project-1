@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 25, 2017 at 04:12 PM
+-- Generation Time: Sep 03, 2017 at 09:03 AM
 -- Server version: 5.7.18
 -- PHP Version: 5.6.28
 
@@ -25,35 +25,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Role`
+-- Table structure for table `Customer`
 --
 
-CREATE TABLE `Role` (
+CREATE TABLE `Customer` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `description` varchar(255) DEFAULT NULL
+  `address` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Role`
+-- Dumping data for table `Customer`
 --
 
-INSERT INTO `Role` (`id`, `name`, `description`) VALUES
-(1001, 'Admin', 'Admin User'),
-(1002, 'Technical Officer', 'Technical Officer'),
-(1003, 'Project Manager', 'Project Manager'),
-(1004, 'Accountant', 'Accountant'),
-(1005, 'CEO', 'CEO'),
-(1006, 'Quantity Surveyor ', 'Quantity Surveyor ');
+INSERT INTO `Customer` (`id`, `name`, `address`) VALUES
+(3001, 'Mr. Thilana Perera', '67, Hill street, Thalawathugoda.'),
+(3002, 'Sandya Perera', '67, Kotte road, Kotte.'),
+(3003, 'Oshan Wikramsinhe', '89, thalawathugoda road, Thalawathugoda'),
+(3004, 'customer5 name', 'customer5 address'),
+(3005, 'customer5 name', 'customer5 address'),
+(3006, 'customer5 name', 'customer5 address');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Role`
+-- Indexes for table `Customer`
 --
-ALTER TABLE `Role`
+ALTER TABLE `Customer`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -61,10 +61,10 @@ ALTER TABLE `Role`
 --
 
 --
--- AUTO_INCREMENT for table `Role`
+-- AUTO_INCREMENT for table `Customer`
 --
-ALTER TABLE `Role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;COMMIT;
+ALTER TABLE `Customer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3007;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

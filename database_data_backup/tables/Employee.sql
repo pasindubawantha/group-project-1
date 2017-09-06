@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 25, 2017 at 04:12 PM
+-- Generation Time: Sep 03, 2017 at 09:04 AM
 -- Server version: 5.7.18
 -- PHP Version: 5.6.28
 
@@ -34,26 +34,27 @@ CREATE TABLE `Employee` (
   `name` varchar(45) NOT NULL,
   `address` varchar(255) DEFAULT NULL,
   `salary` int(11) NOT NULL,
-  `designation` varchar(45) NOT NULL
+  `designation` varchar(45) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Employee`
 --
 
-INSERT INTO `Employee` (`id`, `roleId`, `name`, `address`, `salary`, `designation`) VALUES
-(2001, 1001, 'Admin', 'admins address', 0, 'none'),
-(2002, 1005, 'ceo1s name', 'ceo1s address', 3000000, 'chief executive officer'),
-(2003, 1002, 'Technical Officer1 name', 'technical officer1 address', 3500, 'Technical Officer'),
-(2004, 1002, 'Technical Officer2 name', 'technical officer2 address', 48970, 'Technical Officer'),
-(2005, 1002, 'Technical Officer3 name', 'technical officer3 address', 45000, 'Technical Officer'),
-(2006, 1003, 'Project Manger1 name', 'project manager1 address', 67000, 'Project Manager'),
-(2007, 1003, 'Project Manger2 name', 'project manager2 address', 76000, 'Project Manager'),
-(2008, 1003, 'Project Manger3 name', 'project manager3 address', 65000, 'Assistant Project Manager'),
-(2009, 1006, 'Quantity servayor1 name', 'Quantity servayor1 address', 16000, 'Assistant Qunatity Survayor'),
-(2010, 1006, 'Quantity servayor2 name', 'Quantity servayor2 address', 90000, 'Qunatity Survayor'),
-(2011, 1004, 'Accountant 1 name', 'accountant1 address', 56000, 'Accountant'),
-(2012, 1004, 'Accountant 2 name', 'accountant2 address', 27000, 'Assistant Accountant');
+INSERT INTO `Employee` (`id`, `roleId`, `name`, `address`, `salary`, `designation`, `active`) VALUES
+(2001, 1001, 'Thilana Kostha', '67b, Flower road, Colombo 10.', 0, 'System Administrator', 1),
+(2002, 1005, 'Ranjan Perera', '43B, Dharmapala mw, Kotte.', 3000000, 'CEO', 1),
+(2003, 1002, 'Thushara Pradeep', '67N, Narahenpita road, Narahenpita', 3500, 'Technical Officer', 1),
+(2004, 1002, 'Piyal Athulage', '8, Hawlock road, Colombo 03.', 48970, 'Technical Officer', 1),
+(2005, 1002, 'Kumara Rathnasiri', '7, Dharmapla road, Colombo', 45000, 'Technical Officer', 1),
+(2006, 1003, 'Thusara Piris', '78, alvis road, Negambo.', 67000, 'Project Manager', 1),
+(2007, 1003, 'Don Karolis', '76, kowaththa road, Koswaththa', 76000, 'Project Manager', 1),
+(2008, 1003, 'Hansana Maheesh', '67, Thalwathugoda road, Thalawathugoda', 65000, 'Assistant Project Manager', 1),
+(2009, 1006, 'Senuri Perera', '67, Jade road, Colombo 5.', 16000, 'Assistant Qunatity Survayor', 1),
+(2010, 1006, 'Henry Perera', '78, Marine drive, Colombo.', 90000, 'Qunatity Survayor', 1),
+(2011, 1004, 'Anil Wikramasignhe', '89, flower road, Colombo.', 56000, 'Accountant', 1),
+(2012, 1004, 'Tharindu Diwakara', '90, parliment road, Kotte.', 27000, 'Assistant Accountant', 1);
 
 --
 -- Indexes for dumped tables

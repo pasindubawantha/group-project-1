@@ -20,6 +20,7 @@
         "companyLogo": "./resources/user/Company_Name/logo.png",
         "avatar": "./resources/user/Company_Name/darvin@company.com/avatar.png",
         "email": "darvin@company.com",
+        "userEmployeeId": "2001",
         "defaults": {
             "projectId": 4001,
             "customerId": 3001,
@@ -488,6 +489,12 @@
                         "name": "Pending",
                         "viewID": "ApprovalPendingAll"
                     }
+                ],
+                [
+                    {
+                        "name": "Denied",
+                        "viewID": "ApprovalDeniedAll"
+                    }
                 ]
             ],
             "tabs": {},
@@ -625,6 +632,22 @@
             ]
         },
         "approvalsInboxPayment": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": [
+                
+            ]
+        },
+        "approvalsDeniedMaterial": {
+            "downloaded": false,
+            "downloading": false,
+            "error": null,
+            "data": [
+                
+            ]
+        },
+        "approvalsDeniedPayment": {
             "downloaded": false,
             "downloading": false,
             "error": null,

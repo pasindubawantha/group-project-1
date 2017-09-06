@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 25, 2017 at 04:12 PM
+-- Generation Time: Sep 03, 2017 at 09:05 AM
 -- Server version: 5.7.18
 -- PHP Version: 5.6.28
 
@@ -33,8 +33,8 @@ CREATE TABLE `Project` (
   `customerId` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `address` varchar(512) DEFAULT NULL,
-  `startDate` datetime DEFAULT NULL,
-  `endDate` datetime DEFAULT NULL
+  `startDate` date DEFAULT NULL,
+  `endDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -42,9 +42,9 @@ CREATE TABLE `Project` (
 --
 
 INSERT INTO `Project` (`id`, `customerId`, `name`, `address`, `startDate`, `endDate`) VALUES
-(4001, 3001, 'company default', 'company default', '2017-07-26 00:00:00', '2017-07-26 00:00:00'),
-(4002, 3002, 'project1 name', 'project1 address', '2017-07-02 00:00:00', '2017-12-27 00:00:00'),
-(4003, 3002, 'project2 name', 'project2 address', '2017-07-03 00:00:00', '2017-12-30 00:00:00');
+(4001, 3001, 'company default', 'company default', '2017-07-26', '2017-07-26'),
+(4002, 3002, 'project1 name', 'project1 address', '2017-07-02', '2017-12-27'),
+(4003, 3002, 'project2 name', 'project2 address', '2017-07-03', '2017-12-30');
 
 --
 -- Indexes for dumped tables

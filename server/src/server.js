@@ -31,6 +31,7 @@ var TeamMember = require("./routes/TeamMemberRoute")
 var CustomerPayment = require("./routes/CustomerPaymentRoute")
 var Vendor = require("./routes/VendorRoute")
 var Role = require("./routes/RoleRoute")
+var Approval = require("./routes/ApprovalRoute")
 router.use('/employees', EmployeeRoute)
 router.use('/customers', CustomerRoute)
 router.use('/projects', ProjectRoute)
@@ -38,7 +39,7 @@ router.use('/teamMembers', TeamMember)
 router.use('/customerPayments', CustomerPayment)
 router.use('/vendors', Vendor)
 router.use('/roles', Role)
-
+router.use('/approvals', Approval)
 
 
 app.use('/api', router);
