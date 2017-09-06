@@ -9,7 +9,7 @@ import { fetchApprovalList } from "../../../../../actions/listsActions"
 	return {//props
 		url: store.url,
 		list: store.lists.approvalsApprovedMaterial,
-		userId: store.user.userId
+		userId: store.user.userEmployeeId
 	}
 },)
 //class for pickvinores

@@ -1,1 +1,0 @@
-SELECT * from Transaction as t INNER JOIN TransactionApproval as ta on t.id = ta.transactionId INNER join BudgetEntry as b on t.BudgetEntryId = b.id inner join PriceListEntry as pl on pl.id = b.inventoryItemId inner join InventoryItem as ii on ii.id = pl.InventoryItemId where t.createdEmployeeId = 2001
