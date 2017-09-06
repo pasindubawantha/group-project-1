@@ -297,7 +297,55 @@
                         "downloadError": null,
                         "data": null
                     }
-                }
+                },
+				"Budget":{
+					"menuItems":[
+						[
+                            {
+                                "name": "Upload CVs",
+                                "viewID": "UploadCVViewProject"
+                            }
+                        ],
+						[
+                            {
+                                "name": "Invendory",
+                                "viewID": "InvendoryViewProject"
+                            }
+                        ],
+						[
+                            {
+                                "name": "Stages",
+                                "viewID": "StagesCVViewProject"
+                            }
+                        ]
+					],
+					"tabs":{
+						"Invendory":{
+							"menuItems":[
+							[
+							{
+								"name":"List All Item",
+								"viewID":"InvendoryAll"
+							}
+							],
+							[
+							{
+								"name":"Add New Item",
+								"viewID":"InvendoryNew"
+							}
+							]
+							]
+						}
+					},
+					"budget": {
+                        "downloaded": false,
+                        "downloading": false,
+                        "downloadError": null,
+                        "data": null
+                    }
+					
+				}
+				
             },
             "depnedantLists": [
                 "employees",
